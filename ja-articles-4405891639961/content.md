@@ -126,7 +126,7 @@
     使用了所涉及库的话，请参照下面的链接进行对应。
 </p>
 <p>
-    <a href="https://dev.kf5.com">Cybozu CDN 许可证对应指南</a>
+    <a href="https://cybozudev.kf5.com/hc/kb/article/1521824/">Cybozu CDN 许可证对应指南</a>
 </p>
 <h2>
     使用了所涉及库的文章列表
@@ -137,12 +137,12 @@
 <ul class=" list-paddingleft-2">
     <li>
         <p>
-            <a href="https://developer.cybozu.io/hc/ja/articles/202640870">予算アプリと実績アプリの集計表をカスタマイズビューに表示する（日文）</a>
+            <a href="https://developer.cybozu.io/hc/ja/articles/202640870">用自定义视图显示预算应用和实绩应用的统计表（日文）</a>
         </p>
     </li>
     <li>
         <p>
-            <a href="https://developer.cybozu.io/hc/ja/articles/207605686">予算と実績をリアルタイムに把握する経費精算システムパッケージ（日文）</a>
+            <a href="https://developer.cybozu.io/hc/ja/articles/207605686">实时掌握预算和实绩的经费计算系统包（日文）</a>
         </p>
     </li>
 </ul>
@@ -167,12 +167,12 @@
     </li>
     <li>
         <p>
-            <a href="https://developer.cybozu.io/hc/ja/articles/207331836">Handsontableを使ってkintoneをExcelライクに入力しよう その2 （日文）</a>
+            <a href="https://developer.cybozu.io/hc/ja/articles/207331836">通过Handsontable在kintone上实现像Excel一样编辑数据 之系列2（日文）</a>
         </p>
     </li>
     <li>
         <p>
-            <a href="https://developer.cybozu.io/hc/ja/articles/207605686">予算と実績をリアルタイムに把握する経費精算システムパッケージ （日文）</a>
+            <a href="https://developer.cybozu.io/hc/ja/articles/207605686">实时掌握预算和实绩的经费计算系统包（日文）</a>
         </p>
     </li>
 </ul>
@@ -180,7 +180,7 @@
     关联情报
 </h2>
 <p>
-    <a href="https://developer.cybozu.io/hc/ja/articles/4405430903833">Cybozu CDN からの jqGrid、Handsontable 配信停止について （日文）</a>
+    <a href="https://developer.cybozu.io/hc/ja/articles/4405430903833">关于 Cybozu CDN 停止提供 jqGrid、Handsontable 引用的通知（日文）</a>
 </p>
 <p>
     <br/>

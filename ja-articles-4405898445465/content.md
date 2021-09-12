@@ -1,8 +1,38 @@
 <h2>
+    Index
+</h2>
+<ul class="anchor-link list-paddingleft-2">
+    <li>
+        <p>
+            <a href="#section1">前言</a>
+        </p>
+    </li>
+    <li>
+        <p>
+            <a href="#section2">对应方法</a>
+        </p>
+    </li>
+    <li>
+        <p>
+            <a href="#section3">使用 kintone 插件的对应</a>
+        </p>
+    </li>
+    <li>
+        <p>
+            <a href="#section4">参考情报</a>
+        </p>
+    </li>
+    <li>
+        <p>
+            <a href="#section5">关联情报</a>
+        </p>
+    </li>
+</ul>
+<h2>
     前言
 </h2>
 <p>
-    根据 <a href="https://developer.cybozu.io/hc/ja/articles/4405430903833">Cybozu CDN からの jqGrid、Handsontable 配信停止について （日文）</a>中所提到的<br/>截止到2022年2月28日，Cybozu CDN 不再提供 jqGrid、Handsontable 一部分版本的引用。
+    根据 <a href="https://developer.cybozu.io/hc/ja/articles/4405430903833">关于 Cybozu CDN 停止提供 jqGrid、Handsontable 引用的通知（日文）</a>中所提到的<br/>截止到2022年2月28日，Cybozu CDN 不再提供 jqGrid、Handsontable 一部分版本的引用。
 </p>
 <p>
     现在向正在使用这些库的用户，说明对应的方法。
@@ -37,17 +67,17 @@
 <ul class=" list-paddingleft-2">
     <li>
         <p>
-            <a href="https://developer.cybozu.io/hc/ja/articles/4405898445465#method1">有償ライセンスを別途購入の上、利用を継続する</a>
+            购买有偿许可，继续使用
         </p>
     </li>
     <li>
         <p>
-            <a href="https://developer.cybozu.io/hc/ja/articles/4405898445465#method2">無償ライセンスのバージョンに変更し、利用を継続する</a>
+            变更为无偿的许可版本，继续使用
         </p>
     </li>
     <li>
         <p>
-            <a href="https://developer.cybozu.io/hc/ja/articles/4405898445465#method3">当該ライブラリの利用を中止する</a>
+            停止使用涉及到的库
         </p>
     </li>
 </ul>
@@ -70,10 +100,10 @@
     变更自定义文件的时候，请不要更改原本文件排列顺序。否则可能造成不能正常运行。
 </p>
 <p>
-    <strong>变更后的画面示例（适用于URL）<br/></strong><img src="https://developer.cybozu.io/hc/article_attachments/4405563501849/license_guide-01.png" alt="URLによる適用の場合の画面例" title="" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);max-width:800px;vertical-align:middle;height:auto;"/>
+    <strong>变更后的画面示例（适用于URL）<br/><img src="https://files.kf5.com/attachments/download/23361/12300443/0016139d793e10fc95d577c766ed9f9/" alt="0016139d793e10fc95d577c766ed9f9"/></strong>
 </p>
 <p>
-    <strong>变更后的画面示例（适用于文件）<br/><img src="https://developer.cybozu.io/hc/article_attachments/4405571134233/license_guide-02.png" alt="ファイルによる適用の場合の画面例" title="" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);max-width:800px;vertical-align:middle;height:auto;"/></strong>
+    <strong>变更后的画面示例（适用于文件）<br/><img src="https://files.kf5.com/attachments/download/23361/12300444/0016139d794852f182eff3bb50eaee3/" alt="0016139d794852f182eff3bb50eaee3"/></strong>
 </p>
 <h3>
     购买有偿许可，继续使用
@@ -94,7 +124,7 @@
     </li>
 </ol>
 <h3>
-    变更为无偿的许可版本，继续使用。
+    变更为无偿的许可版本，继续使用
 </h3>
 <p>
     从Cybozu CDN 或其他 CDN 服务中获取 URL，<br/>或者在库的提供元的 GitHub 中获取文件，切换到无偿许可。
@@ -142,7 +172,7 @@
     如在 kintone 插件中使用了所涉及到的库，请在下列中选择一项进行对应。
 </p>
 <h3>
-   继续使用涉及到的库（有偿或无偿）
+    继续使用涉及到的库（有偿或无偿）
 </h3>
 <p>
     如果是自己开发的插件，则可以在删除该库的 URL，替换成按「对应方法」中说明的获取到的 URL 或绑定文件。进行再打包。<br/>详细内容请参照<a href="https://cybozudev.kf5.com/hc/kb/article/1000664/">kintone 插件开发流程</a>
@@ -177,7 +207,7 @@
 <ul class=" list-paddingleft-2">
     <li>
         <p>
-            <a href="https://developer.cybozu.io/hc/ja/articles/4405430903833">关于 Cybozu CDN 停止提供 jqGrid、Handsontable 引用的通知</a>
+            <a href="https://developer.cybozu.io/hc/ja/articles/4405430903833">关于 Cybozu CDN 停止提供 jqGrid、Handsontable 引用的通知（日文）</a>
         </p>
     </li>
 </ul>
