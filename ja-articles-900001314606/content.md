@@ -4,7 +4,7 @@
 <ul class=" list-paddingleft-2">
     <li>
         <p>
-            <a href="#section1">入门</a>
+            <a href="#section1">前言</a>
         </p>
     </li>
     <li>
@@ -14,29 +14,17 @@
     </li>
     <li>
         <p>
-            <a href="#section3">自定义图像</a>
+            <a href="#section3">自定义概况</a>
         </p>
     </li>
     <li>
         <p>
-            <a href="#section4">模式 1：使用 REST API 浏览数据</a>
+            <a href="#section4">方式 1：使用 REST API 浏览数据</a>
         </p>
     </li>
-    <ul class=" list-paddingleft-2" style="list-style-type: square;">
-        <li>
-            <p>
-                <a href="#section4-1">从其他应用检索表数据<br/></a>
-            </p>
-        </li>
-        <li>
-            <p>
-                <a href="#section4-2">将表数据导出到其他应用</a>
-            </p>
-        </li>
-    </ul>
     <li>
         <p>
-            <a href="#section5">模式 2：仅引用标准功能</a>
+            <a href="#section5">方式 2：仅引用标准功能</a>
         </p>
     </li>
     <li>
@@ -50,7 +38,7 @@
 </h2>
 <p>
     如果想从另一个kintone应用引用表格的整个数据，
-    但关联记录列表的功能又无法设置。有这方面困扰的人还是很多的吧。
+ &nbsp; &nbsp;但关联记录列表的功能又无法设置。有这方面困扰的人还是很多的吧。
 </p>
 <p>
     对于这些用户，我们总结了在应用之间引用表格数据的方法。现在，让我们看一下具体操作吧。
@@ -63,24 +51,24 @@
         <p>
             kintone应用
         </p>
-        <p class=" list-paddingleft-2">
-        添加应用商店中的&quot;差旅费结算申请&quot;和&quot;出差申请&quot;。
+        <p class="list-paddingleft-2">
+            添加应用商店中的“差旅费结算申请”和“出差申请”。
         </p>
     </li>
     <li>
-      <p>
-        编辑器
-      </p>
-      <p class=" list-paddingleft-2">
-        有关准备编辑器的内容可以参照 <a href="https://cybozudev.kf5.com/hc/kb/article/215327/#step3">此处</a>。
-      </p>
+        <p>
+            编辑器
+        </p>
+        <p class="list-paddingleft-2">
+            有关准备编辑器的内容可以参照 <a href="https://cybozudev.kf5.com/hc/kb/article/215327/#step3">此处</a>。
+        </p>
     </li>
 </ul>
 <h2>
     自定义概况
 </h2>
 <p>
-    通过此自定义，我们希望从&quot;出差申请&quot; 应用查看 &quot;差旅费结算申请&quot; 应用中的 &quot;旅费&quot; 表格中的数据。
+    通过此自定义，我们希望从“出差申请” 应用查看 “差旅费结算申请” 应用中的 “旅费” 表格中的数据。
 </p>
 <ul class=" list-paddingleft-2">
     <li>
@@ -93,7 +81,7 @@
             <strong>方式 2：仅使用标准功能&nbsp; &nbsp;&nbsp;</strong>
         </p>
         <p>
-        这次介绍以上两种方式。
+            这次介绍以上两种方式。
         </p>
     </li>
 </ul>
@@ -122,16 +110,16 @@
     从其他应用检索表格数据
 </h3>
 <h4>
-    工作原理
+    机制
 </h4>
 <p>
-    具体来说，它的工作原理是&nbsp;<strong>&quot;从其他应用获取表格数据，并将其显示在详细信息屏幕的空白字段中</strong>&quot; 。
+    具体来说，它的机制是&nbsp;<strong>“从其他应用获取表格数据，并将其显示在详细信息屏幕的空白字段中”</strong> 。
 </p>
 <p>
-    在此示例中，当显示&quot;出差申请&quot;应用的记录详细信息画面时，
+    在此示例中，当显示“出差申请”应用的记录详细信息画面时，
 </p>
 <p>
-    从&quot;差旅费结算申请&quot;应用获取&quot;旅费&quot;表格中的数据，并在空白栏字段中显示内容。 应用之间的关系图如下所示：
+    从“差旅费结算申请”应用获取“旅费”表格中的数据，并在空白栏字段中显示内容。 应用之间的关系图如下所示：
 </p>
 <p>
     <img src="https://developer.cybozu.io/hc/article_attachments/900002748206/2-1-outline-drawing.png" alt="2-1-outline-drawing.png" width="600" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);max-width:800px;vertical-align:middle;height:auto;"/>
@@ -148,14 +136,14 @@
 <ul class=" list-paddingleft-2">
     <li>
         <p>
-            <strong>&quot;出差申请&quot;应用：<br/></strong>
+            <strong>“出差申请”应用：<br/></strong>
         </p>
     </li>
 </ul>
 <ol class=" list-paddingleft-2">
     <li>
         <p>
-            添加字段代码为&quot;出差申请编号&quot;的记录编号字段。
+            添加字段代码为“出差申请编号”的记录编号字段。
         </p>
     </li>
     <li>
@@ -184,7 +172,7 @@
                     </td>
                     <td>
                         <p>
-                            用于标识&quot;出差费用结算申请&quot;记录的数字。<br/>请参阅同一&quot;出差申请编号&quot;中的&quot;差旅费用结算申请&quot;记录中的表数据，并将其反映在&quot;出差申请&quot;记录中。
+                            用于标识“出差费用结算申请”记录的数字。<br/>请参阅同一“出差申请编号”中的“差旅费用结算申请”记录中的表数据，并将其反映在“出差申请”记录中。
                         </p>
                     </td>
                 </tr>
@@ -196,7 +184,7 @@
                         空白栏
                     </td>
                     <td>
-                        用于显示检索到的&quot;出差费用结算申请&quot;的表格数据。
+                        用于显示检索到的“出差费用结算申请”的表格数据。
                     </td>
                 </tr>
             </tbody>
@@ -209,19 +197,19 @@
     </li>
 </ol>
 <p>
-    在空白栏字段中显示数据时，标准函数无法计算显示的数据的总值。如果希望计算总金额（包括空白栏字段中显示的数据），则需要使用从&quot;差旅费结算申请&quot;应用获取的数据来计算总金额。
+    在空白栏字段中显示数据时，标准函数无法计算显示的数据的总值。如果希望计算总金额（包括空白栏字段中显示的数据），则需要使用从“差旅费结算申请“应用获取的数据来计算总金额。
 </p>
 <ul class=" list-paddingleft-2">
     <li>
         <p>
-            <strong>&quot;差旅费结算申请&quot;应用程序：</strong>
+            <strong>“差旅费结算申请”应用程序：</strong>
         </p>
     </li>
 </ul>
 <ol class=" list-paddingleft-2">
     <li>
         <p>
-            添加字段代码为&quot;出差申请号&quot;的数值字段（必填字段）。<br/>
+            添加字段代码为“出差申请号”的数值字段（必填字段）。<br/>
         </p>
         <table>
             <tbody>
@@ -245,13 +233,13 @@
                     </td>
                     <td>
                         <p>
-                            用于标识&quot;出差申请&quot;记录的编号。<br/>相同的&quot;出差申请号&quot;中的&quot;出差申请&quot;记录反映&quot;差旅费结算申请&quot;的表数据。
+                            用于标识“出差申请”记录的编号。<br/>相同的“出差申请号”中的“出差申请”记录反映“差旅费结算申请”的表数据。
                         </p>
                         <p>
-                            在此处输入要链接的&quot;出差申请&quot;应用程序的记录编号。<br/>
+                            在此处输入要链接的“出差申请”应用程序的记录编号。<br/>
                         </p>
                         <p>
-                            * 请匹配&quot;出差申请&quot;应用中的&quot;出差申请号&quot;和字段代码。<br/>• 字段设置 ：&quot;设为必填项&quot; 和 &quot;值为唯一&quot; 。<br/>
+                            * 请匹配“出差申请”应用中的“出差申请号”和字段代码。<br/>• 字段设置 ：“设为必填项” 和 “值为唯一” 。<br/>
                         </p>
                     </td>
                 </tr>
@@ -263,7 +251,7 @@
     <strong>示例程序</strong><strong><br/></strong>
 </h4>
 <p>
-    在&quot;出差申请&quot;应用的记录详情中，从&quot;差旅费结算申请&quot;应用获取&quot;旅费&quot;表格中的数据，并将其显示在&quot;出差申请&quot;应用的空白栏字段中。
+    在“出差申请”应用的记录详情中，从“差旅费结算申请”应用获取“旅费”表格中的数据，并将其显示在“出差申请”应用的空白栏字段中。
 </p>
 <pre class="brush:js;toolbar:false">/*
  * 从其他应用程序引用表数据的示例程序
@@ -273,52 +261,52 @@
  * https://opensource.org/licenses/mit-license.php
 */
 (function() {
-  &#39;use strict&#39;;
-  kintone.events.on(&#39;app.record.detail.show&#39;, function(event) {
-    // 请重写为&quot;差旅费结算申请&quot;的应用 ID
+  &quot;use strict&quot;;
+  kintone.events.on(&quot;app.record.detail.show&quot;, function(event) {
+    // 请替换为&quot;差旅费结算申请&quot;的应用 ID
     var APP_ID = 123;
     // 获取作为「出差申请号」使用的「记录编号」
     var applicationNumber = kintone.app.record.getId();
     // 字段代码保存为变量
-    var businessTripExpenses = &#39;旅费&#39;;
-    var date = &#39;旅费日期&#39;;
-    var transportation = &#39;交通工具&#39;;
-    var summary = &#39;旅费摘要&#39;;
-    var amount = &#39;旅费金额&#39;;
-    var receipt = &#39;旅费发票&#39;;
+    var businessTripExpenses = &quot;旅费&quot;;
+    var date = &quot;旅费日期&quot;;
+    var transportation = &quot;交通工具&quot;;
+    var summary = &quot;旅费摘要&quot;;
+    var amount = &quot;旅费金额&quot;;
+    var receipt = &quot;旅费发票&quot;;
     // 显示制作「差旅费结算申请应用」的情报的表格
-    var tableHtml = &#39;&lt;thead&gt;&lt;tr&gt;&#39; +
-        &#39;&lt;th&gt;&#39; + date + &#39;&lt;/th&gt;&#39; +
-        &#39;&lt;th&gt;&#39; + transportation + &#39;&lt;/th&gt;&#39; +
-        &#39;&lt;th&gt;&#39; + summary + &#39;&lt;/th&gt;&#39; +
-        &#39;&lt;th&gt;&#39; + amount + &#39;&lt;/th&gt;&#39; +
-        &#39;&lt;th&gt;&#39; + receipt + &#39;&lt;/th&gt;&#39; +
-        &#39;&lt;/tr&gt;&#39; +
-        &#39;&lt;/thead&gt;&#39; +
-        &#39;&lt;/tbody&gt;&#39;;
+    var tableHtml = &quot;&lt;thead&gt;&lt;tr&gt;&quot; +
+        &quot;&lt;th&gt;&quot; + date + &quot;&lt;/th&gt;&quot; +
+        &quot;&lt;th&gt;&quot; + transportation + &quot;&lt;/th&gt;&quot; +
+        &quot;&lt;th&gt;&quot; + summary + &quot;&lt;/th&gt;&quot; +
+        &quot;&lt;th&gt;&quot; + amount + &quot;&lt;/th&gt;&quot; +
+        &quot;&lt;th&gt;&quot; + receipt + &quot;&lt;/th&gt;&quot; +
+        &quot;&lt;/tr&gt;&quot; +
+        &quot;&lt;/thead&gt;&quot; +
+        &quot;&lt;/tbody&gt;&quot;;
     // 显示制作空字段的表格
-    var tableEl = document.createElement(&#39;table&#39;);
-    tableEl.id = &#39;table&#39;;
-    tableEl.border = &#39;1&#39;;
-    tableEl.style.textAlign = &#39;center&#39;;
-    tableEl.style.padding = &#39;10px&#39;;
-    tableEl.insertAdjacentHTML(&#39;afterbegin&#39;, tableHtml);
-    kintone.app.record.getSpaceElement(&#39;tableSpace&#39;).appendChild(tableEl);
+    var tableEl = document.createElement(&quot;table&quot;);
+    tableEl.id = &quot;table&quot;;
+    tableEl.border = &quot;1&quot;;
+    tableEl.style.textAlign = &quot;center&quot;;
+    tableEl.style.padding = &quot;10px&quot;;
+    tableEl.insertAdjacentHTML(&quot;afterbegin&quot;, tableHtml);
+    kintone.app.record.getSpaceElement(&quot;tableSpace&quot;).appendChild(tableEl);
     // 从「差旅费结算申请应用」中获取相同的「出差申请号」
     var params = {
-      &#39;app&#39;: APP_ID,
-      &#39;query&#39;: &#39;出差申请号 = &#39; + applicationNumber
+      &quot;app&quot;: APP_ID,
+      &quot;query&quot;: &quot;出差申请号 = &quot; + applicationNumber
     };
-    return kintone.api(kintone.api.url(&#39;/k/v1/records&#39;, true), &#39;GET&#39;, params).then(function(resp) {
+    return kintone.api(kintone.api.url(&quot;/k/v1/records&quot;, true), &quot;GET&quot;, params).then(function(resp) {
       var travelExpenseAppRecords = resp.records;
       // 相同的「出差申请号」记录在「差旅费结算申请应用」中不存在的时候，显示错误
       if (travelExpenseAppRecords.length === 0) {
-        window.alert(&#39;在「差旅费结算申请应用」中没有找到相同的「出差申请号」，不能显示「旅费」表格。&#39;);
+        window.alert(&quot;在「差旅费结算申请应用」中没有找到相同的「出差申请号」，不能显示「旅费」表格。&quot;);
         return event;
       }
-      // 取得した「差旅费结算申请应用」のテーブルデータを作成した表に格納
+      // 把获取到的「差旅费结算申请应用」的表格数据存储起来
       var tableRows = travelExpenseAppRecords[0][businessTripExpenses].value;
-      var tableRef = document.getElementById(&#39;table&#39;);
+      var tableRef = document.getElementById(&quot;table&quot;);
       tableRows.forEach(function(row) {
         var tableRow = tableRef.insertRow(-1);
         var cell1 = tableRow.insertCell(-1);
@@ -334,8 +322,8 @@
       });
       return event;
     }).catch(function(error) {
-      // エラー表示をする
-      window.alert(&#39;エラーが起こりました。エラーメッセージ：&#39; + error.message);
+      // 显示错误
+      window.alert(&quot;发生错误，错误信息：&quot; + error.message);
       return event;
     });
   });
@@ -349,12 +337,12 @@
 <ol class=" list-paddingleft-2">
     <li>
         <p>
-            在&quot;差旅费结算申请&quot;应用中创建新记录并保存。<br/>在&quot;旅费&quot;表格中添加演示数据。
+            在“差旅费结算申请”应用中创建新记录并保存。<br/>在“旅费”表格中添加演示数据。
         </p>
     </li>
     <li>
         <p>
-            在&quot;出差申请&quot;应用中创建新记录并保存。<br/>检查保存的记录详细信息屏幕的 tableSpace 空间字段，<br/>确认是否显示类似于&quot;已完成的画面&quot;中的表格。
+            在“出差申请”应用中创建新记录并保存。<br/>检查保存的记录详细信息屏幕的 tableSpace 空间字段，<br/>确认是否显示类似于“已完成的画面”中的表格。
         </p>
     </li>
 </ol>
@@ -362,13 +350,13 @@
     将表格数据导出到其他应用
 </h3>
 <h4>
-    工作原理
+    机制
 </h4>
 <p>
-    具体而言<strong>，&quot;保存记录时，在要引用表数据的应用中注册表格</strong>&quot;。
+    具体而言<strong>，“保存记录时，在要引用表数据的应用中注册表格”</strong>。
 </p>
 <p>
-    在此示例中，当您保存&quot;旅行费用结算申请&quot;应用的记录时，<br/>会将&quot;旅费&quot;表中的数据存储在&quot;出差申请&quot;应用中。 应用之间的关系图如下所示。
+    在此示例中，当您保存“旅行费用结算申请”应用的记录时，<br/>会将“旅费”表中的数据存储在“出差申请”应用中。 应用之间的关系图如下所示。
 </p>
 <p>
     <img src="https://developer.cybozu.io/hc/article_attachments/900002748226/2-2-outline-drawing.png" alt="2-2-outline-drawing.png" width="600" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);max-width:800px;vertical-align:middle;height:auto;"/>
@@ -385,14 +373,14 @@
 <ul class=" list-paddingleft-2">
     <li>
         <p>
-            <strong>&quot;出差申请&quot;应用：</strong>
+            <strong>“出差申请”应用：</strong>
         </p>
     </li>
 </ul>
 <ol class=" list-paddingleft-2">
     <li>
         <p>
-            添加字段代码为&quot;出差申请号&quot;的记录编号字段。
+            添加字段代码为“出差申请号”的记录编号字段。
         </p>
     </li>
     <li>
@@ -421,7 +409,7 @@
                     </td>
                     <td>
                         <p>
-                            用于标识&quot;旅行费用结算申请&quot;记录的数字。<br/>从同一&quot;出差申请编号&quot;的&quot;差旅费用结算申请&quot;记录中更新的表数据反映在&quot;出差申请&quot;记录中。
+                            用于标识“旅行费用结算申请”记录的数字。<br/>从同一“出差申请编号”的“差旅费用结算申请”记录中更新的表数据反映在“出差申请”记录中。
                         </p>
                     </td>
                 </tr>
@@ -433,7 +421,7 @@
                         表
                     </td>
                     <td>
-                        添加与&quot;旅行费用结算申请&quot;中的&quot;差旅费&quot;表相同的表。
+                        添加与“旅行费用结算申请”中的“差旅费”表相同的表。
                     </td>
                 </tr>
             </tbody>
@@ -446,14 +434,14 @@
 <ul class=" list-paddingleft-2">
     <li>
         <p>
-            <strong>&quot;差旅费结算申请&quot;应用：</strong>
+            <strong>“差旅费结算申请”应用：</strong>
         </p>
     </li>
 </ul>
 <ol class=" list-paddingleft-2">
     <li>
         <p>
-            添加字段代码为&quot;出差申请编号&quot;的记录编号字段。<br/>
+            添加字段代码为“出差申请编号”的记录编号字段。<br/>
         </p>
         <table>
             <tbody>
@@ -477,13 +465,13 @@
                     </td>
                     <td>
                         <p>
-                            用于标识&quot;出差申请&quot;记录的编号。<br/>相同的&quot;出差申请号&quot;中的&quot;出差申请&quot;记录反映&quot;差旅费结算申请&quot;的表数据。
+                            用于标识“出差申请”记录的编号。<br/>相同的“出差申请号”中的“出差申请”记录反映“差旅费结算申请”的表数据。
                         </p>
                         <p>
-                            在此处输入要链接的&quot;出差申请&quot;应用的记录编号。<br/>
+                            在此处输入要链接的“出差申请”应用的记录编号。<br/>
                         </p>
                         <p>
-                            * 请匹配&quot;出差申请&quot;应用中的&quot;出差申请号&quot;和字段代码。<br/>• 字段设置 ：&quot;设为必填项&quot; 和 &quot;值为唯一&quot; 。
+                            * 请匹配“出差申请”应用中的“出差申请号”和字段代码。<br/>• 字段设置 ：“设为必填项” 和 “值为唯一” 。
                         </p>
                     </td>
                 </tr>
@@ -500,100 +488,93 @@
     <strong>示例程序<br/></strong>
 </h4>
 <p>
-    在&quot;旅行费用结算申请&quot;应用程序的记录添加和编辑屏幕保存成功后的事件中，&quot;<br/>旅行费用结算申请&quot;应用的&quot;旅费&quot;表中的数据也会导出到&quot;出差申请&quot;应用程序的&quot;旅费&quot;表中。
+    在“旅行费用结算申请”应用程序的记录添加和编辑屏幕保存成功后的事件中，<br/>“旅行费用结算申请”应用的“旅费”表中的数据也会导出到“出差申请”应用程序的“旅费”表中。
 </p>
 <pre class="brush:js;toolbar:false">/*
- * テーブルのデータを別アプリから参照するサンプルプログラム
+ * 把表格数据保存到另一个应用的示例程序
  * Copyright (c) 2020 Cybozu
  *
  * Licensed under the MIT License
  * https://opensource.org/licenses/mit-license.php
 */
 (function() {
-  &#39;use strict&#39;;
-  kintone.events.on(&#39;app.record.detail.show&#39;, function(event) {
-    // 「差旅费结算申请应用」のアプリのIDに書き換えてください
-    var APP_ID = 123;
-    // 「出差申请号」として利用する「レコード番号」を取得
-    var applicationNumber = kintone.app.record.getId();
-    // フィールドコードを変数に格納
-    var businessTripExpenses = &#39;旅費&#39;;
-    var date = &#39;旅費日付&#39;;
-    var transportation = &#39;手段&#39;;
-    var summary = &#39;旅費摘要&#39;;
-    var amount = &#39;旅費金額&#39;;
-    var receipt = &#39;旅費領収書&#39;;
-    // 「差旅费结算申请应用」情報を表示する表を作成
-    var tableHtml = &#39;&lt;thead&gt;&lt;tr&gt;&#39; +
-        &#39;&lt;th&gt;&#39; + date + &#39;&lt;/th&gt;&#39; +
-        &#39;&lt;th&gt;&#39; + transportation + &#39;&lt;/th&gt;&#39; +
-        &#39;&lt;th&gt;&#39; + summary + &#39;&lt;/th&gt;&#39; +
-        &#39;&lt;th&gt;&#39; + amount + &#39;&lt;/th&gt;&#39; +
-        &#39;&lt;th&gt;&#39; + receipt + &#39;&lt;/th&gt;&#39; +
-        &#39;&lt;/tr&gt;&#39; +
-        &#39;&lt;/thead&gt;&#39; +
-        &#39;&lt;/tbody&gt;&#39;;
-    // スペースフィールドに作成した表を表示
-    var tableEl = document.createElement(&#39;table&#39;);
-    tableEl.id = &#39;table&#39;;
-    tableEl.border = &#39;1&#39;;
-    tableEl.style.textAlign = &#39;center&#39;;
-    tableEl.style.padding = &#39;10px&#39;;
-    tableEl.insertAdjacentHTML(&#39;afterbegin&#39;, tableHtml);
-    kintone.app.record.getSpaceElement(&#39;tableSpace&#39;).appendChild(tableEl);
-    // 「差旅费结算申请应用」から「出差申请号」が同じのレコードを取得
-    var params = {
-      &#39;app&#39;: APP_ID,
-      &#39;query&#39;: &#39;出差申请号 = &#39; + applicationNumber
+  &quot;use strict&quot;;
+
+  // 请替换成「出差申请应用」的应用ID
+  var APP_ID = 123;
+
+  // 把字段代码赋值给变量
+  var businessTripExpenses = &quot;旅费&quot;;
+  var applicationNumber = &quot;出差申请号&quot;;
+
+  kintone.events.on([&quot;app.record.edit.submit&quot;, &quot;app.record.create.submit&quot;], function(event) {
+    // 获取「差旅费结算申请应用」的子表格对象
+    var travelExpenseAppRecord = event.record;
+    var tableRows = travelExpenseAppRecord[businessTripExpenses].value;
+    
+    // 「差旅费结算申请应用」的子表格对象赋给数组
+    var subtable = tableRows.map(function(row) {
+      return {value: row.value};
+    });
+
+    // 从出差申请应用中获取相同的「出差申请号」的记录
+    var paramForGet = {
+      &quot;app&quot;: APP_ID,
+      &quot;id&quot;: travelExpenseAppRecord[applicationNumber].value
     };
-    return kintone.api(kintone.api.url(&#39;/k/v1/records&#39;, true), &#39;GET&#39;, params).then(function(resp) {
-      var travelExpenseAppRecords = resp.records;
-      // 同じ「出差申请号」のレコードが「差旅费结算申请应用」に存在しないときにエラーを表示
-      if (travelExpenseAppRecords.length === 0) {
-        window.alert(&#39;「差旅费结算申请应用」に同じ「出差申请号」のレコードがないため、「旅費」テーブルのデータを表示できません。&#39;);
+    return kintone.api(kintone.api.url(&quot;/k/v1/record&quot;, true), &quot;GET&quot;, paramForGet).then(function(resp) {
+
+      var businessTripAppRecord = resp.record;
+
+      // 「出差申请应用」中相同的「出差申请号」记录不存在时，显示错误
+      if (!businessTripAppRecord) {
+        window.alert(&quot;「出差申请应用」中相同的「出差申请号」记录不存在、不能更新差旅费结算申请&quot;);
         return event;
       }
-      // 取得した「差旅费结算申请应用」のテーブルデータを作成した表に格納
-      var tableRows = travelExpenseAppRecords[0][businessTripExpenses].value;
-      var tableRef = document.getElementById(&#39;table&#39;);
-      tableRows.forEach(function(row) {
-        var tableRow = tableRef.insertRow(-1);
-        var cell1 = tableRow.insertCell(-1);
-        var cell2 = tableRow.insertCell(-1);
-        var cell3 = tableRow.insertCell(-1);
-        var cell4 = tableRow.insertCell(-1);
-        var cell5 = tableRow.insertCell(-1);
-        cell1.appendChild(document.createTextNode(row.value[date].value));
-        cell2.appendChild(document.createTextNode(row.value[transportation].value));
-        cell3.appendChild(document.createTextNode(row.value[summary].value));
-        cell4.appendChild(document.createTextNode(row.value[amount].value));
-        cell5.appendChild(document.createTextNode(row.value[receipt].value));
-      });
+      // 获取的出差申请数据に差旅费结算申请を更新
+      var paramForPut = {
+        &quot;app&quot;: APP_ID,
+        &quot;id&quot;: travelExpenseAppRecord[applicationNumber].value,
+        &quot;record&quot;: {
+          // 差旅费结算申请(子表格)
+          &quot;旅费&quot;: {
+            &quot;value&quot;: subtable
+          }
+        }
+      };
+
+      // 在「出差申请应用」中反映出记录追加后的数据
+      return kintone.api(kintone.api.url(&quot;/k/v1/record&quot;, true), &quot;PUT&quot;, paramForPut);
+
+    }).then(function(resp2) {
+      // 处理成功时的信息
+      window.alert(&quot;出差申请应用に差旅费结算申请を反映しました!&quot;);
       return event;
+
     }).catch(function(error) {
-      // エラー表示をする
-      window.alert(&#39;エラーが起こりました。エラーメッセージ：&#39; + error.message);
+      // 处理失败时的错误信息
+      window.alert(&quot;向出差申请应用的反映失败了\n&quot; + error.message);
       return event;
     });
   });
 })();</pre>
 <h4>
-    <strong>操作确认</strong>
+    <strong>动作确认</strong>
 </h4>
 <ol class=" list-paddingleft-2">
     <li>
         <p>
-            在&quot;出差申请&quot;应用中创建新记录并保存。
+            在“出差申请”应用中创建新记录并保存。
         </p>
     </li>
     <li>
         <p>
-            在&quot;申请差旅费&quot;应用中创建新记录并保存。<br/> 在&quot;旅费&quot;表中填入演示数据。
+            在“申请差旅费”应用中创建新记录并保存。<br/> 在“旅费”表中填入演示数据。
         </p>
     </li>
     <li>
         <p>
-            保存&quot;出差费用结算申请&quot;应用的记录添加/编辑屏幕时，<br/>如果出现&quot;出差申请应用反映差旅费用结算申请数据&quot;消息，<br/>请在 1 中创建的&quot;出差申请&quot;记录的&quot;差旅费&quot;表中查看数据是否反映。
+            保存“出差费用结算申请”应用的记录添加/编辑屏幕时，<br/>如果出现“出差申请应用反映差旅费用结算申请数据”消息，<br/>请在 1 中创建的“出差申请”记录的“差旅费”表中查看数据是否反映。
         </p>
     </li>
 </ol>
@@ -607,10 +588,10 @@
     这个方法包含一些按钮操作，虽然稍微欠缺一些便利，但可以零编码。如果有兴趣的话请试试看。
 </p>
 <h3>
-    工作原理
+    机制
 </h3>
 <p>
-    <strong>&quot;要保存为表的数据存储在其他应用中，</strong><br/><strong>然后使用相关记录功能从应用&quot;</strong>中引用数据。
+    <strong>在别的应用中保存表数据，然后再那个应用中使用关联记录来引用数据。</strong>
 </p>
 <p>
     对于此示例中使用的应用
@@ -618,17 +599,17 @@
 <ul class=" list-paddingleft-2">
     <li>
         <p>
-            <strong>创建&quot;差旅详情&quot;应用</strong>
+            <strong>创建“差旅详情”应用</strong>
         </p>
     </li>
     <li>
         <p>
-            <strong>将相当于&quot;旅行费用结算申请&quot;应用程序的表数据的内容保存到&quot;差旅详情&quot;应用</strong>
+            <strong>将相当于“旅行费用结算申请”应用程序的表数据的内容保存到“差旅详情”应用</strong>
         </p>
     </li>
     <li>
         <p>
-            <strong>使用相关记录从&quot;旅行费用结算申请&quot;和&quot;出差申请&quot;应用查看保存的&quot;差旅费用详细信息&quot;应用中的数据</strong>
+            <strong>使用相关记录从“旅行费用结算申请”和“出差申请”应用查看保存的“差旅费用详细信息”应用中的数据</strong>
         </p>
     </li>
 </ul>
@@ -639,13 +620,13 @@
     <img src="https://developer.cybozu.io/hc/article_attachments/900002722503/1-outline-drawing.png" alt="1-outline-drawing.png" width="600" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);max-width:800px;vertical-align:middle;height:auto;"/>
 </p>
 <p>
-    &nbsp;在新的&quot;差旅详情&quot;应用中注册数据是使用&quot;申请差旅费用&quot;应用中的操作<br/>按钮将一行表数据存储在一条记录中。
+    &nbsp;在新的“差旅详情”应用中注册数据是使用“申请差旅费用”应用中的操作<br/>按钮将一行表数据存储在一条记录中。
 </p>
 <h3>
     <strong>已完成的图像</strong>
 </h3>
 <p>
-    <img src="https://developer.cybozu.io/hc/article_attachments/900002722403/1-rendering-image.png" alt="1-rendering-image.png" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);max-width:800px;vertical-align:middle;height:auto;font-family:&#39;-apple-system&#39;, BlinkMacSystemFont, &#39;Segoe UI&#39;, Helvetica, Arial, sans-serif;"/>
+    <img src="https://developer.cybozu.io/hc/article_attachments/900002722403/1-rendering-image.png" alt="1-rendering-image.png" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);max-width:800px;vertical-align:middle;height:auto;"/>
 </p>
 <h3>
     <strong>应用步骤</strong>
@@ -653,14 +634,23 @@
 <ul class=" list-paddingleft-2">
     <li>
         <p>
-            <strong>&quot;差旅详情&quot;应用：</strong>
+            <strong>“差旅详情”应用：</strong>
         </p>
     </li>
 </ul>
 <ol class=" list-paddingleft-2">
     <li>
         <p>
-            创建新&quot;差旅详情&quot;应用。<br/><br/>-添加字段以保存与&quot;旅行费用结算申请&quot;<br/>应用程序的表数据等效的内容，如&quot;日期&quot;、&quot;手段&quot;、&quot;差旅说明&quot;、&quot;金额&quot;和&quot;收据&quot;。&nbsp;- 添加字段名称为&quot;差旅申请编号&quot;的字符串（一行）字段。<br/><br/><br/><br/>- 有关要添加的字段的详细信息，请参阅下文。<br/>
+            1. 创建新“差旅详情”应用。
+        </p>
+        <p>
+            · 添加字段以保存与“旅行费用结算申请”应用程序的表数据等效的内容，如“日期”、“手段”、“差旅说明”、“金额”和“收据”。
+        </p>
+        <p>
+            · 添加字段名称为“差旅申请编号”的字符串（一行）字段。
+        </p>
+        <p>
+            · 有关要添加的字段的详细信息，请参阅下文。
         </p>
         <table>
             <tbody>
@@ -694,7 +684,7 @@
                         下拉列表
                     </td>
                     <td>
-                        输入旅行费用的&quot;手段&quot;信息。
+                        输入旅行费用的“手段”信息。
                     </td>
                 </tr>
                 <tr>
@@ -748,24 +738,24 @@
 <ul class=" list-paddingleft-2">
     <li>
         <p>
-            <strong>&quot;申请差旅费报到&quot;应用程序：</strong>
+            <strong>“申请差旅费报到”应用程序：</strong>
         </p>
     </li>
 </ul>
 <ol class=" list-paddingleft-2">
     <li>
         <p>
-            删除&quot;差旅费&quot;表。
+            1. 删除“差旅费”表。
         </p>
     </li>
     <li>
         <p>
-            设置操作功能。<br/><br/>- 在操作设置的&quot;关联字段&quot;中<br/>，将&quot;否&quot;字段与&quot;差旅详情&quot;应用中的&quot;出差申请编号&quot;相关联。<br/><br/>*有关如何设置操作<a href="https://jp.cybozu.help/k/ja/user/app_settings/appaction/set_appaction.html">的信息</a>，请参阅此处。
+            2. 设置操作功能。<br/><br/>在操作设置的“关联字段”中，<br/>将“否”字段与“差旅详情”应用中的“出差申请编号”相关联。<br/><br/>※有关如何设置操作的信息，<a href="https://jp.cybozu.help/k/ja/user/app_settings/appaction/set_appaction.html">请参阅此处</a>。
         </p>
     </li>
     <li>
         <p>
-            添加相关记录列表字段，并将其设置为查看&quot;差旅详情&quot;应用中的数据。<br/><br/>- 有关要添加的字段的详细信息，请参阅下文。<br/>
+            3. 添加相关记录列表字段，并将其设置为查看“差旅详情”应用中的数据。<br/><br/>有关要添加的字段的详细信息，请参阅下文。<br/>
         </p>
         <table>
             <tbody>
@@ -787,53 +777,35 @@
                     <td>
                         相关记录列表
                     </td>
-                    <td></td>
+                    <td>
+                        · 浏览应用：差旅详情<br/>· 要显示的记录条件：此应用程序的字段“否”和要引用的应用字段“出差申请编号”<br/>· 要显示的字段：要在“申请差旅费用结算”应用中显示的字段<br/>· 有关如何设置相关记录的详细信息<a href="https://jp.cybozu.help/k/ja/user/app_settings/form/related_records/set_relatedrecords.html">，</a>请参阅此处。
+                    </td>
                 </tr>
             </tbody>
         </table>
     </li>
 </ol>
-<ul class=" list-paddingleft-2">
-    <li>
-        <p>
-            浏览应用：差旅详情
-        </p>
-    </li>
-    <li>
-        <p>
-            要显示的记录条件：此应用程序的字段&quot;否&quot;和要引用的应用字段&quot;出差申请编号&quot;
-        </p>
-    </li>
-    <li>
-        <p>
-            要显示的字段：要在&quot;申请差旅费用结算&quot;应用中显示的字段
-        </p>
-    </li>
-    <li>
-        <p>
-            有关如何设置相关记录的详细信息<a href="https://jp.cybozu.help/k/ja/user/app_settings/form/related_records/set_relatedrecords.html">，</a>请参阅此处。
-        </p>
-    </li>
-</ul>
 <p>
-    如果相关记录功能（而不是表）在&quot;提交差旅费用&quot;应用中显示&quot;差旅<br/>&quot;数据，则表数据无法计算标准功能的总值。<br/>如果希望计算总计值（包括相关记录中的金额数据<a href="https://developer.cybozu.io/hc/ja/articles/203030394">），请参阅</a>此文章。<br/>如果首先尝试&quot;浏览表数据&quot;部分的行为，<br/>请在删除&quot;旅行费用结算申请&quot;中的&quot;旅行费用&quot;表时删除&quot;总差旅费用&quot;计算字段。
+    表格，想要让关联记录功能作为表格的替代品在“出差费用结算申请”应用中显示“旅费”的话，标准功能中的表格数据合计计算的功能就会失效了。
+    想要计算含有关联记录里的金额数据的合计值的话，<a href="https://cybozudev.kf5.com/hc/kb/article/1032767/">请参照这篇文章。</a>
+    想要试一试“表格数据参照”部分的效果的同学，“出差费用结算申请”的“旅费”
 </p>
 <ul class=" list-paddingleft-2">
     <li>
         <p>
-            <strong>&quot;出差申请&quot;应用程序：</strong>
+            <strong>“出差申请”应用程序：</strong>
         </p>
     </li>
 </ul>
 <ol class=" list-paddingleft-2">
     <li>
         <p>
-            创建字段代码为&quot;出差申请编号&quot;的字符串（一行）字段。<br/><br/>（用作关联记录和操作关联的键）
+            创建字段代码为“出差申请编号”的字符串（一行）字段。<br/><br/>（用作关联记录和操作关联的键）
         </p>
     </li>
     <li>
         <p>
-            添加相关记录列表字段，并将其设置为查看&quot;差旅详情&quot;应用中的数据。<br/><br/>- 有关要添加的字段的详细信息，请参阅下文。<br/>
+            添加相关记录列表字段，并将其设置为查看“差旅详情”应用中的数据。<br/><br/>- 有关要添加的字段的详细信息，请参阅下文。<br/>
         </p>
         <table>
             <tbody>
@@ -880,12 +852,12 @@
     </li>
     <li>
         <p>
-            要显示的记录条件：此应用程序的字段&quot;差旅申请编号&quot;和&quot;旅行费用申请编号&quot;。
+            要显示的记录条件：此应用程序的字段“差旅申请编号”和“旅行费用申请编号”。
         </p>
     </li>
     <li>
         <p>
-            要显示的字段：要在&quot;申请差旅费用结算&quot;应用中显示的字段
+            要显示的字段：要在“申请差旅费用结算”应用中显示的字段
         </p>
     </li>
     <li>
@@ -901,7 +873,7 @@
     在本提示中，我介绍了如何跨应用程序引用表数据（^0^）/
 </p>
 <p>
-    还有许多其他有用的信息，<a href="https://developer.cybozu.io/hc/ja/sections/360002613691">如自定义</a><br/>数据引用中<a href="https://developer.cybozu.io/hc/ja/sections/360002613651">常用的相关</a>记录以及如何在表中执行其他操作♪
+    还有许多其他有用的信息，如<a href="https://developer.cybozu.io/hc/ja/sections/360002613691">关联记录的自定义</a><br/>和<a href="https://developer.cybozu.io/hc/ja/sections/360002613651">数据活用的方法</a>请务必确认一下♪
 </p>
 <p>
     <br/>
