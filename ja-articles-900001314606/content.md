@@ -107,7 +107,7 @@
     在本文中，将向您展示如何通过 JavaScript 自定义来实现上述两种方式的自动引用。
 </p>
 <h3>
-    从其他应用检索表格数据
+    从其他应用获取表格数据
 </h3>
 <h4>
     机制
@@ -122,13 +122,13 @@
     从“差旅费结算申请”应用获取“旅费”表格中的数据，并在空白栏字段中显示内容。 应用之间的关系图如下所示：
 </p>
 <p>
-    <img src="https://developer.cybozu.io/hc/article_attachments/900002748206/2-1-outline-drawing.png" alt="2-1-outline-drawing.png" width="600" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);max-width:800px;vertical-align:middle;height:auto;"/>
+    <img src="https://files.kf5.com/attachments/download/23361/12386073/0016155771f98ce17ec2037c06ed0c6/" alt="0016155771f98ce17ec2037c06ed0c6"/>
 </p>
 <h4>
     <strong>已完成的画面</strong>
 </h4>
 <p>
-    <img src="https://developer.cybozu.io/hc/article_attachments/900002792743/2-1-rendering_images.png" alt="2-1-rendering_images.png" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);max-width:800px;vertical-align:middle;height:auto;"/>
+    <img src="https://files.kf5.com/attachments/download/23361/12386221/00161557b52e01e324fe82add579749/" alt="00161557b52e01e324fe82add579749"/>
 </p>
 <h4>
     <strong>应用步骤</strong>
@@ -787,8 +787,8 @@
 </ol>
 <p>
     表格，想要让关联记录功能作为表格的替代品在“出差费用结算申请”应用中显示“旅费”的话，标准功能中的表格数据合计计算的功能就会失效了。
-    想要计算含有关联记录里的金额数据的合计值的话，<a href="https://cybozudev.kf5.com/hc/kb/article/1032767/">请参照这篇文章。</a>
-    想要试一试“表格数据参照”部分的效果的同学，“出差费用结算申请”的“旅费”
+ &nbsp; &nbsp;想要计算含有关联记录里的金额数据的合计值的话，<a href="https://cybozudev.kf5.com/hc/kb/article/1032767/">请参照这篇文章。</a>
+ &nbsp; &nbsp;想要试一试“表格数据参照”部分的效果的同学，“出差费用结算申请”的“旅费”
 </p>
 <ul class=" list-paddingleft-2">
     <li>
