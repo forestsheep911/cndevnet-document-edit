@@ -1,5 +1,8 @@
-<h2>
+<h2 class="origin">
     はじめに〜昨今のライブラリ事情〜
+</h2>
+<h2 class="trans">
+    前言〜谈古论今之库的故事〜
 </h2>
 <p class="origin">
     フロントエンド界隈のトレンドは流れが速く、キャッチアップしづらい側面がありましたが、最近は比較的安定しています。<br/>JavaScript のフレームワークやライブラリにも栄枯盛衰がありますが、近頃はReactやVue.jsなどが多くの開発者に利用されています。<br/>ライトな開発であればそのようなライブラリを導入せずともJavaScriptカスタマイズする上では問題はありませんが、<br/>ある程度規模が大きくなると、ライブラリに頼ったほうが効率的に開発することができます。
@@ -22,171 +25,112 @@
 <p class="trans del">
     因为没有系列文章的总览表，故不翻译。
 </p>
-<h2>
+<h2 class="origin">
     Reactとは、Reactの特徴
 </h2>
-<p>
+<h2 class="trans">
+    React 是什么、React 的特征
+</h2>
+<p class="origin">
     React は、FacebookとReactのコミュニティによって開発されているユーザインタフェース構築のためのJavaScriptライブラリです。
 </p>
-<p>
+<p class="trans">
+    React 是 Facebook 和 React社区为构筑用户界面而开发的 JavaScript 库。
+</p>
+<p class="origin">
     <a href="https://ja.reactjs.org/">React の公式サイト</a>に書かれている、3つの特徴を解説します。
 </p>
-<h3>
+<p class="trans">
+    现在解说一下<a href="https://ja.reactjs.org/">React 的官方网站</a>上所记载的三个特征。
+</p>
+<h3 class="origin">
     宣言的な View
 </h3>
-<p>
+<h3 class="trans">
+    声明式
+</h3>
+<p class="origin">
     &nbsp;「宣言的」というのは条件やどのように動作するかなどが明確に示されている状態です。<br/>例えばjQueryは「手続き的」 で、DOM操作であれば、要素を取得しその要素に対し命令を積み上げていきます。<br/>コードのいろんな箇所から要素に対して命令をすることができるので、複雑に絡み合うとバグの温床になります。
 </p>
-<p>
+<p class="trans">
+    &nbsp;「声明式」所说的是条件或者动作所明确表示的状态。<br/>例如 jQuery 是「命令式」的，如果是 DOM 操作的话，就取得元素后对它进行命令的堆叠。<br/>代码中有很多地方都对某个元素进行命令的话，各种复杂的条件交织在一起时，便成了 bug 的温床。
+</p>
+
+<p class="origin">
     たとえば、「クリックしたとき、その要素の色を赤と青に交互に変更する」というものを書いてみます。
 </p>
-<ul class=" list-paddingleft-2">
-    <li>
-        <p>
-            jQuery
-        </p>
-    </li>
-</ul>
-<p>
-    <br/>
+<p class="trans">
+    举个例子，根据如下需求写出代码：“按下按钮后，元素的颜色在红色和绿色之间反复切换”
 </p>
-<table>
-    <tbody>
-        <tr class="firstRow">
-            <td></td>
-            <td>
-                const element = $(&#39;#target&#39;);
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                element.on(&#39;click&#39;, () =&gt; {
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                if(this.backgroundColor === &#39;red&#39;) {
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                this.backgroundColor = &#39;blue&#39;;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                } else {
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                this.backgroundColor = &#39;red&#39;;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                }
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                });
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    &nbsp;Copyクリップボードにコピーしました
-</p>
-<p>
-    <br/>
-</p>
-<ul class=" list-paddingleft-2">
-    <li>
-        <p>
-            React
-        </p>
-    </li>
-</ul>
-<p>
-    <br/>
-</p>
-<table>
-    <tbody>
-        <tr class="firstRow">
-            <td></td>
-            <td>
-                const Element = () =&gt; {
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                const [color, setColor] = useState(&#39;red&#39;);
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                const clickHandler = () =&gt; color === &#39;red&#39; ? setColor(&#39;blue&#39;) : setColor(&#39;red&#39;);
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                return &lt;div styles={{ backgroundColor: color}} onClick={clickHandler}&gt;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                };
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    &nbsp;Copyクリップボードにコピーしました
-</p>
-<p>
-    <br/>
-</p>
-<p>
+```javascript
+const element = $('#target');
+element.on('click', () => {
+  if(this.backgroundColor === 'red') {
+    this.backgroundColor = 'blue';
+  } else {
+    this.backgroundColor = 'red';
+  }
+});
+```
+<p class="origin">
     これだけですと、大した差はないかもしれませんが、jQueryの場合は、どこからでもイベントハンドラーを追加することができてしまいます。<br/>また、「今の要素の色は何色か？」というような状態もDOMで管理することになる（要素から現在の色を読み取る）ので、コード上でやることが増えていった場合、<br/>どんどん複雑になり、正常に動作させつづけることが難しくなります。<br/>Reactの場合はDOMと状態は分けて管理されるため、状態が自明です。
 </p>
-<h3>
+<p class="trans">
+    只有很少的代码，可能怎么写区别都不大，拿 jQuery 来说，可以从任何地方追加事件的句柄。<br/>还有“这个元素现在是什么颜色？”类似这种状态也要用代码管理起来的话，<br/>渐渐的越来越复杂，到最后难以维系正常的动作。<br/>React 则会把 DOM 和状态分开管理，状态一目了然。
+</p>
+<h3 class="origin">
     コンポーネントベース
 </h3>
-<p>
+<h3 class="trans">
+    基于组件
+</h3>
+<p class="origin">
     Reactは、自分自身の状態を管理するカプセル化されたコンポーネントを作成し組み合わせることで、複雑なユーザインターフェイスを構築することができます。
 </p>
-<p>
+<p class="trans">
+    在 React 中，组件自身能管理状态，并用搭建胶囊化的组件的方式，来构筑复杂的用户界面。
+</p>
+<p class="origin">
     コンポーネントのロジックは、Template ではなく JavaScript そのもので書くことができるので、様々なデータをアプリケーション内で簡単に取り回すことができ、<br/>かつ DOM に状態を持たせないようにすることができます。
 </p>
-<p>
+<p class="trans">
+    组件的逻辑是，不用 Template 而是直接可以写 JavaScript 代码，以便在程序中简单地获取各种各样的数据<br/>并且可以让 DOM 不带自身的状态。
+</p>
+<p class="origin">
     上記サンプルコードも、「赤なのか青なのか」という情報は、color変数が保持しており、DOMの状態を意識する必要がありません。<br/>また、その状態管理やイベントハンドリングも一つにまとめたコンポーネントとすることができます。
 </p>
-<h3>
+<p class="trans">
+    在上述的代码范例中，“是红还是绿”，这个情报保存在 color 变量中，不需要在意 DOM 的状态。<br/>。
+</p>
+<h3 class="origin">
     一度学習すれば、どこでも使える
 </h3>
-<p>
+<h3 class="trans">
+    一次学习，处处使用
+</h3>
+<p class="origin">
     React と組み合わせて使用する技術に制限はありません。<br/>React を使って新しい機能を追加する際に、既存のソースコードを書き換える必要はありません。
 </p>
-<p>
+<p class="trans">
+   React 可以和其他技术并存而不产生冲突。<br/>使用 React 追加新功能时也不必更换既有代码。
+</p>
+<p class="origin">
     React は サーバ上でもレンダー（サーバーサイドレンダリング）できますし、React Native を使うことでモバイルアプリケーションの中でも動きますので、一度覚えると流用が可能です。
 </p>
-<h2>
+<p class="trans">
+    React 在自建服务器或租赁服务器上都可运作，React Native则可以使你的程序运行在手机上，所以一旦掌握了可以在各处使用。
+</p>
+<h2 class="origin">
     React を導入する際の検討ポイント
 </h2>
-<p>
+<h2 class="trans">
+    React 引入时的注意点
+</h2>
+<p class="origin">
     Reactには次のようなメリットとデメリットがありますので、導入の際は、これらを加味して検討すると良いでしょう。
+</p>
+<p class="trans">
+    React 有以下优缺点，在引入的时候，最好综合考虑各方面因素再加以判断。
 </p>
 <h3>
     メリット
