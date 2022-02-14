@@ -122,7 +122,7 @@
     从“差旅费结算申请”应用获取“旅费”表格中的数据，并在空白栏字段中显示内容。 应用之间的关系图如下所示：
 </p>
 <p>
-    <img src="https://files.kf5.com/attachments/download/23361/12386073/0016155771f98ce17ec2037c06ed0c6/" alt="0016155771f98ce17ec2037c06ed0c6"/>
+    <img src="https://files.kf5.com/attachments/download/23361/12386073/0016155771f98ce17ec2037c06ed0c6/" alt="0016155771f98ce17ec2037c06ed0c6" width="845" height="405" style="width:845px;height:405px;"/>
 </p>
 <h4>
     <strong>已完成的画面</strong>
@@ -172,7 +172,7 @@
                     </td>
                     <td>
                         <p>
-                            用于标识“出差费用结算申请”记录的数字。<br/>请参阅同一“出差申请编号”中的“差旅费用结算申请”记录中的表数据，并将其反映在“出差申请”记录中。
+                            用于标识“差旅费结算申请”记录的数字。<br/>请参阅同一“出差申请编号”中的“差旅费用结算申请”记录中的表数据，并将其反映在“出差申请”记录中。
                         </p>
                     </td>
                 </tr>
@@ -184,7 +184,7 @@
                         空白栏
                     </td>
                     <td>
-                        用于显示检索到的“出差费用结算申请”的表格数据。
+                        用于显示检索到的“差旅费结算申请”的表格数据。
                     </td>
                 </tr>
             </tbody>
@@ -359,13 +359,16 @@
     在此示例中，当您保存“旅行费用结算申请”应用的记录时，<br/>会将“旅费”表中的数据存储在“出差申请”应用中。 应用之间的关系图如下所示。
 </p>
 <p>
-    <img src="https://developer.cybozu.io/hc/article_attachments/900002748226/2-2-outline-drawing.png" alt="2-2-outline-drawing.png" width="600" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);max-width:800px;vertical-align:middle;height:auto;"/>
+    <img src="https://files.kf5.com/attachments/download/23361/12387078/0016155ac874f9eb02dd13258f8dd47/" alt="0016155ac874f9eb02dd13258f8dd47"/>
+</p>
+<p>
+    <br/>
 </p>
 <h4>
     已完成的图像
 </h4>
 <p>
-    <img src="https://developer.cybozu.io/hc/article_attachments/900002792723/2-2-rendering_images.png" alt="2-2-rendering_images.png" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);max-width:800px;vertical-align:middle;height:auto;"/>
+    <img src="https://files.kf5.com/attachments/download/23361/12387305/0016155c28a4e57e6cc153e1c65c22d/"/>
 </p>
 <h4>
     应用步骤
@@ -480,7 +483,7 @@
     </li>
     <li>
         <p>
-            将示例程序保存到 JavaScript 文件，然后从设置屏幕读取文件。 *有关如何导入文件的信息<a href="https://jp.cybozu.help/k/ja/user/app_settings/js_customize.html">，请参阅使用 JavaScript 或 CSS 自定义</a>应用程序。<br/><br/>
+            将示例程序保存到 JavaScript 文件，然后从设置屏幕读取文件。 *有关如何导入文件的信息<a href="https://jp.cybozu.help/k/zh/user/app_settings/js_customize.html">，请参阅使用 JavaScript 或 CSS 自定义</a>应用程序。<br/><br/>
         </p>
     </li>
 </ol>
@@ -531,7 +534,7 @@
         window.alert(&quot;「出差申请应用」中相同的「出差申请号」记录不存在、不能更新差旅费结算申请&quot;);
         return event;
       }
-      // 获取的出差申请数据に差旅费结算申请を更新
+      // 更新的出差申请数据
       var paramForPut = {
         &quot;app&quot;: APP_ID,
         &quot;id&quot;: travelExpenseAppRecord[applicationNumber].value,
@@ -548,12 +551,12 @@
 
     }).then(function(resp2) {
       // 处理成功时的信息
-      window.alert(&quot;出差申请应用に差旅费结算申请を反映しました!&quot;);
+      window.alert(&quot;在出差申请应用中反映了差旅费结算申请!&quot;);
       return event;
 
     }).catch(function(error) {
       // 处理失败时的错误信息
-      window.alert(&quot;向出差申请应用的反映失败了\n&quot; + error.message);
+      window.alert(&quot;向出差申请应用反映时失败了\n&quot; + error.message);
       return event;
     });
   });
@@ -574,7 +577,7 @@
     </li>
     <li>
         <p>
-            保存“出差费用结算申请”应用的记录添加/编辑屏幕时，<br/>如果出现“出差申请应用反映差旅费用结算申请数据”消息，<br/>请在 1 中创建的“出差申请”记录的“差旅费”表中查看数据是否反映。
+            保存“差旅费结算申请”应用的记录添加/编辑屏幕时，<br/>如果出现“出差申请应用反映差旅费用结算申请数据”消息，<br/>请在 1 中创建的“出差申请”记录的“差旅费”表中查看数据是否反映。
         </p>
     </li>
 </ol>
@@ -585,7 +588,7 @@
     我们已经介绍了如何使用 JavaScript 进行自定义，接下来将向您展示如何使用标准功能来实现这一切，这会显得容易一些。
 </p>
 <p>
-    这个方法包含一些按钮操作，虽然稍微欠缺一些便利，但可以零编码。如果有兴趣的话请试试看。
+    这个方法使用了分享操作，虽然稍微欠缺一些便利，但可以零编码。如果有兴趣的话请试试看。
 </p>
 <h3>
     机制
@@ -617,7 +620,10 @@
     图像。 应用之间的关系图如下所示。
 </p>
 <p>
-    <img src="https://developer.cybozu.io/hc/article_attachments/900002722503/1-outline-drawing.png" alt="1-outline-drawing.png" width="600" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);max-width:800px;vertical-align:middle;height:auto;"/>
+    <img src="https://files.kf5.com/attachments/download/23361/12387284/0016155c139c0f1b371fbc0ec6250f8/"/>
+</p>
+<p>
+    <br/>
 </p>
 <p>
     &nbsp;在新的“差旅详情”应用中注册数据是使用“申请差旅费用”应用中的操作<br/>按钮将一行表数据存储在一条记录中。
@@ -626,7 +632,7 @@
     <strong>已完成的图像</strong>
 </h3>
 <p>
-    <img src="https://developer.cybozu.io/hc/article_attachments/900002722403/1-rendering-image.png" alt="1-rendering-image.png" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);max-width:800px;vertical-align:middle;height:auto;"/>
+    <img src="https://files.kf5.com/attachments/download/23361/12387290/0016155c180c50a17e4279f57b7ae65/" alt="0016155c180c50a17e4279f57b7ae65"/>
 </p>
 <h3>
     <strong>应用步骤</strong>
@@ -641,10 +647,10 @@
 <ol class=" list-paddingleft-2">
     <li>
         <p>
-            1. 创建新“差旅详情”应用。
+            创建新“差旅详情”应用。
         </p>
         <p>
-            · 添加字段以保存与“旅行费用结算申请”应用程序的表数据等效的内容，如“日期”、“手段”、“差旅说明”、“金额”和“收据”。
+            · 添加字段以保存与“旅行费用结算申请”应用程序的表数据等效的内容，如“日期”、“交通工具”、“旅费摘要”、“金额”和“发票”。
         </p>
         <p>
             · 添加字段名称为“差旅申请编号”的字符串（一行）字段。
@@ -673,23 +679,23 @@
                         日期字段
                     </td>
                     <td>
-                        输入差旅费用的日期信息。
+                        输入旅费的日期信息。
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        手段
+                        交通工具
                     </td>
                     <td>
                         下拉列表
                     </td>
                     <td>
-                        输入旅行费用的“手段”信息。
+                        输入旅行费用的“交通工具”信息。
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        旅行费用说明
+                        旅费摘要
                     </td>
                     <td>
                         字符串（一行）
@@ -706,18 +712,18 @@
                         数字
                     </td>
                     <td>
-                        输入差旅费用的金额信息。
+                        输入旅费的金额信息。
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        收据
+                        发票
                     </td>
                     <td>
                         复选框
                     </td>
                     <td>
-                        输入差旅费用的收据信息。
+                        输入旅费的发票信息。
                     </td>
                 </tr>
                 <tr>
@@ -738,24 +744,24 @@
 <ul class=" list-paddingleft-2">
     <li>
         <p>
-            <strong>“申请差旅费报到”应用程序：</strong>
+            <strong>“差旅费结算申请”应用：</strong>
         </p>
     </li>
 </ul>
 <ol class=" list-paddingleft-2">
     <li>
         <p>
-            1. 删除“差旅费”表。
+            删除“差旅费”表。
         </p>
     </li>
     <li>
         <p>
-            2. 设置操作功能。<br/><br/>在操作设置的“关联字段”中，<br/>将“否”字段与“差旅详情”应用中的“出差申请编号”相关联。<br/><br/>※有关如何设置操作的信息，<a href="https://jp.cybozu.help/k/ja/user/app_settings/appaction/set_appaction.html">请参阅此处</a>。
+            设置操作功能。<br/><br/>在操作设置的“关联字段”中，<br/>将“否”字段与“差旅详情”应用中的“出差申请编号”相关联。<br/><br/>※有关如何设置应用分享的操作，<a href="https://jp.cybozu.help/k/zh/user/app_settings/appaction/set_appaction.html">请参阅此处</a>。
         </p>
     </li>
     <li>
         <p>
-            3. 添加相关记录列表字段，并将其设置为查看“差旅详情”应用中的数据。<br/><br/>有关要添加的字段的详细信息，请参阅下文。<br/>
+            添加相关记录列表字段，并将其设置为查看“差旅详情”应用中的数据。<br/><br/>有关要添加的字段的详细信息，请参阅下文。<br/>
         </p>
         <table>
             <tbody>
@@ -772,13 +778,13 @@
                 </tr>
                 <tr>
                     <td>
-                        差旅费用项目
+                        旅费项目
                     </td>
                     <td>
                         相关记录列表
                     </td>
                     <td>
-                        · 浏览应用：差旅详情<br/>· 要显示的记录条件：此应用程序的字段“否”和要引用的应用字段“出差申请编号”<br/>· 要显示的字段：要在“申请差旅费用结算”应用中显示的字段<br/>· 有关如何设置相关记录的详细信息<a href="https://jp.cybozu.help/k/ja/user/app_settings/form/related_records/set_relatedrecords.html">，</a>请参阅此处。
+                        · 引用应用：差旅详情<br/>· 要显示的记录条件：此应用程序的字段“否”和要引用的应用字段“出差申请编号”<br/>· 要显示的字段：要在“差旅费结算申请”应用中显示的字段<br/>· 有关如何设置关联记录列表，<a href="https://jp.cybozu.help/k/zh/user/app_settings/form/related_records/set_relatedrecords.html">请参阅此处</a>。
                     </td>
                 </tr>
             </tbody>
@@ -786,14 +792,14 @@
     </li>
 </ol>
 <p>
-    表格，想要让关联记录功能作为表格的替代品在“出差费用结算申请”应用中显示“旅费”的话，标准功能中的表格数据合计计算的功能就会失效了。
+    表格，想要让关联记录功能作为表格的替代品在“差旅费结算申请”应用中显示“旅费”的话，标准功能中的表格数据合计计算的功能就会失效了。
  &nbsp; &nbsp;想要计算含有关联记录里的金额数据的合计值的话，<a href="https://cybozudev.kf5.com/hc/kb/article/1032767/">请参照这篇文章。</a>
- &nbsp; &nbsp;想要试一试“表格数据参照”部分的效果的同学，“出差费用结算申请”的“旅费”
+ &nbsp; &nbsp;想要试一试“表格数据参照”部分的效果的同学，“差旅费结算申请”的“旅费”
 </p>
 <ul class=" list-paddingleft-2">
     <li>
         <p>
-            <strong>“出差申请”应用程序：</strong>
+            <strong>“出差申请”应用程序：</strong>   
         </p>
     </li>
 </ul>
@@ -833,7 +839,7 @@
                 </tr>
                 <tr>
                     <td>
-                        差旅费用项目
+                        旅费项目
                     </td>
                     <td>
                         相关记录列表
@@ -847,7 +853,7 @@
 <ul class=" list-paddingleft-2">
     <li>
         <p>
-            浏览应用：差旅详情
+            引用应用：差旅详情
         </p>
     </li>
     <li>
@@ -857,23 +863,23 @@
     </li>
     <li>
         <p>
-            要显示的字段：要在“申请差旅费用结算”应用中显示的字段
+            要显示的字段：要在“差旅费结算申请”应用中显示的字段
         </p>
     </li>
     <li>
         <p>
-            有关如何设置相关记录的详细信息<a href="https://jp.cybozu.help/k/ja/user/app_settings/form/related_records/set_relatedrecords.html">，</a>请参阅此处。
-        </p>
+            有关如何设置关联记录列表，<a href="https://jp.cybozu.help/k/zh/user/app_settings/form/related_records/set_relatedrecords.html">请参阅此处</a>
+        </p>。
     </li>
 </ul>
 <h2>
-    结束
+    结束语
 </h2>
 <p>
     在本提示中，我介绍了如何跨应用程序引用表数据（^0^）/
 </p>
 <p>
-    还有许多其他有用的信息，如<a href="https://developer.cybozu.io/hc/ja/sections/360002613691">关联记录的自定义</a><br/>和<a href="https://developer.cybozu.io/hc/ja/sections/360002613651">数据活用的方法</a>请务必确认一下♪
+    还有许多其他有用的信息，如<a href="https://developer.cybozu.io/hc/ja/sections/360002613691">关联记录的自定义（日文）</a><br/>和<a href="https://developer.cybozu.io/hc/ja/sections/360002613651">数据活用的方法（日文）</a>请务必确认一下♪
 </p>
 <p>
     <br/>
