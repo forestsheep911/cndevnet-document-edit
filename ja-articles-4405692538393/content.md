@@ -2,7 +2,7 @@
     はじめに〜昨今のライブラリ事情〜
 </h2>
 <h2 class="trans">
-    前言〜谈古论今之库的故事〜
+    前言〜库的昨夜和今天〜
 </h2>
 <p class="origin">
     フロントエンド界隈のトレンドは流れが速く、キャッチアップしづらい側面がありましたが、最近は比較的安定しています。<br/>JavaScript のフレームワークやライブラリにも栄枯盛衰がありますが、近頃はReactやVue.jsなどが多くの開発者に利用されています。<br/>ライトな開発であればそのようなライブラリを導入せずともJavaScriptカスタマイズする上では問題はありませんが、<br/>ある程度規模が大きくなると、ライブラリに頼ったほうが効率的に開発することができます。
@@ -379,7 +379,6 @@ element.on('click', () => {
 </p>
 
 ```javascript
-
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 
@@ -388,7 +387,7 @@ const ChecklistComponent: React.FC<{records: KintoneTypes.SavedCustomer[]}> = ({
   // 保管选中的ID
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
-  // 
+  // 按钮按下时的句柄
   const buttonHandler = () => {
     if (selectedIds.length === 0) {
       alert('什么都没有选中');
@@ -438,661 +437,239 @@ kintone.events.on('app.record.index.show', async (event) => {
   // 显示Component
   ReactDOM.render(<ChecklistComponent records={records} />, targetEl);
 });
-
 ```
+
 <p>
     <br/>
 </p>
-<h3>
+<h3 class="origin">
     コードの概要説明
 </h3>
-<p>
+<h3 class="trans">
+    代码的概要说明
+</h3>
+<p class="origin">
     大まかに1.コンポーネントの定義と、2.コンポーネントの表示に分けて説明します。
 </p>
-<p>
-    今回は、前回第六章で説明したTypeScriptも利用したコードになります。
+<p class="trans">
+    大致分为1.组件的定义、2.组件的显示。
 </p>
 <p>
-    1. コンポーネントの定義
+    这里，运用到了上次第六篇中介绍到的 TypeScript 。
 </p>
 <p>
-    <br/>
+    1. 组件的定义
 </p>
-<table>
-    <tbody>
-        <tr class="firstRow">
-            <td></td>
-            <td>
-                // Componentの定義
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                const ChecklistComponent: React.FC&lt;{records: KintoneTypes.SavedCustomer[]}&gt; = ({records}) =&gt; {
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                // チェックしたIDを保管する
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                const [selectedIds, setSelectedIds] = useState&lt;string[]&gt;([]);
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                // ボタンを押したときのハンドラ
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                const buttonHandler = () =&gt; {
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                if (selectedIds.length === 0) {
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                alert(&#39;何も選択されていません。&#39;);
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                return;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                }
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                // なにか選択されていれば、会社名を表示する。
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                alert(`${selectedIds.map((id) =&gt; records.find((r) =&gt; r.$id.value === id)?.会社名.value).join(&#39;\n&#39;)}`);
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                };
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                // チェックボックスを押したときのハンドラ
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                const checkboxHandler = (recordId: string) =&gt; (e:React.ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                if (e.target.checked) {
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                // チェックされた場合、チェックしたIDを含めて新しい配列を返却
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                setSelectedIds((current) =&gt; [...current, recordId]);
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                } else {
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                // チェックを外された場合、チェックしたIDを消す
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                setSelectedIds((current) =&gt; {
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                // すでに選ばれているか念の為確認
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                const targetIndex = current.indexOf(recordId);
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                if (targetIndex === -1) return current;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                // 該当のindexを切り取って新しい配列を返却
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                return [...current.slice(0, targetIndex), ...current.slice(targetIndex + 1)];
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                });
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                }
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                };
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                // 要素の定義と返却
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                return &lt;div style={{margin: &#39;8px 16px&#39;}}&gt;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                &lt;div&gt;&lt;button onClick={buttonHandler}&gt;選択されている顧客を表示する&lt;/button&gt;&lt;/div&gt;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                {records.map((record) =&gt; {
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                return &lt;div style={{margin: &#39;4px 8px&#39;}} key={record.$id.value}&gt;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                &lt;label&gt;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                &lt;input type=&quot;checkbox&quot; onChange={checkboxHandler(record.$id.value)} checked={selectedIds.includes(record.$id.value)}/&gt;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                &lt;span style={{paddingLeft: &#39;4px&#39;}}&gt;{record.会社名.value}&lt;/span&gt;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                &lt;/label&gt;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                &lt;/div&gt;;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                })}
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                &lt;/div&gt;;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                };
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    &nbsp;Copyクリップボードにコピーしました
-</p>
-<p>
-    <br/>
-</p>
-<p>
+
+```javascript
+// 组件的定义
+const ChecklistComponent: React.FC<{records: KintoneTypes.SavedCustomer[]}> = ({records}) => {
+  // 保管选中的ID
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+
+  // 按钮按下时的句柄
+  const buttonHandler = () => {
+    if (selectedIds.length === 0) {
+      alert('什么都没有选中');
+      return;
+    }
+    // 显示选中的公司名
+    alert(`${selectedIds.map((id) => records.find((r) => r.$id.value === id)?.单行文本框.value).join('\n')}`);
+  };
+
+  // 返回含选中复选框的ID的新数组
+  const checkboxHandler = (recordId: string) => (e:React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
+      // 返回含选中复选框的ID的新数组
+      setSelectedIds((current) => [...current, recordId]);
+    } else {
+      // 删除复选框去除时的ID
+      setSelectedIds((current) => {
+        // 确认已经选中的
+        const targetIndex = current.indexOf(recordId);
+        if (targetIndex === -1) return current;
+        // 返回去掉该index的新数组
+        return [...current.slice(0, targetIndex), ...current.slice(targetIndex + 1)];
+      });
+    }
+  };
+
+  //  返回元素的定义
+  return <div style={{margin: '8px 16px'}}>
+    <div><button onClick={buttonHandler}>显示选中的客户</button></div>
+    {records.map((record) => {
+      return <div style={{margin: '4px 8px'}} key={record.$id.value}>
+        <label>
+          <input type="checkbox" onChange={checkboxHandler(record.$id.value)} checked={selectedIds.includes(record.$id.value)}/>
+          <span style={{paddingLeft: '4px'}}>{record.单行文本框.value}</span>
+        </label>
+      </div>;
+    })}
+  </div>;
+};
+```
+
+<p class="origin">
     今回は、複数のチェックボックスを一つのコンポーネントとして定義しました。
 </p>
-<p>
+<p class="trans">
+    这里，把多选框定义为一个组件。
+</p>
+<p class="origin">
     Reactでは<a href="https://ja.reactjs.org/docs/introducing-jsx.html">JSX</a>を利用して、要素の定義ができます。36〜47行目のように、HTMLを書くような感覚でかけます。
 </p>
-<table>
-    <tbody>
-        <tr class="firstRow">
-            <td></td>
-            <td>
-                // 要素の定義と返却
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                return &lt;div style={{margin: &#39;8px 16px&#39;}}&gt;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                &lt;div&gt;&lt;button onClick={buttonHandler}&gt;選択されている顧客を表示する&lt;/button&gt;&lt;/div&gt;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                {records.map((record) =&gt; {
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                return &lt;div style={{margin: &#39;4px 8px&#39;}} key={record.$id.value}&gt;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                &lt;label&gt;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                &lt;input type=&quot;checkbox&quot; onChange={checkboxHandler(record.$id.value)} checked={selectedIds.includes(record.$id.value)}/&gt;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                &lt;span style={{paddingLeft: &#39;4px&#39;}}&gt;{record.会社名.value}&lt;/span&gt;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                &lt;/label&gt;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                &lt;/div&gt;;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                })}
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                &lt;/div&gt;;
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    <br/>
+<p class="trans">
+    React用<a href="https://zh-hans.reactjs.org/docs/introducing-jsx.html">JSX</a>来定义组件，如下方代码所示，就有点像在写Html语言。
 </p>
-<p>
+
+```javascript
+  // 返回元素的定义
+  return <div style={{margin: '8px 16px'}}>
+    <div><button onClick={buttonHandler}>显示选中的客户</button></div>
+    {records.map((record) => {
+      return <div style={{margin: '4px 8px'}} key={record.$id.value}>
+        <label>
+          <input type="checkbox" onChange={checkboxHandler(record.$id.value)} checked={selectedIds.includes(record.$id.value)}/>
+          <span style={{paddingLeft: '4px'}}>{record.会社名.value}</span>
+        </label>
+      </div>;
+    })}
+  </div>;
+```
+
+<p class="origin">
     ボタンを押したときのハンドラや、チェックボックスをおしたときのハンドラは、それぞれ10〜17行目、20〜34行目のように宣言します。
 </p>
-<table>
-    <tbody>
-        <tr class="firstRow">
-            <td></td>
-            <td>
-                const buttonHandler = () =&gt; {
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                if (selectedIds.length === 0) {
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                alert(&#39;何も選択されていません。&#39;);
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                return;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                }
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                // なにか選択されていれば、会社名を表示する。
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                alert(`${selectedIds.map((id) =&gt; records.find((r) =&gt; r.$id.value === id)?.会社名.value).join(&#39;\n&#39;)}`);
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                };
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    <code><table>
-        <tbody>
-            <tr class="firstRow">
-                <td></td>
-                <td>
-                    const checkboxHandler = (recordId: string) =&gt; (e:React.ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    if (e.target.checked) {
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    // チェックされた場合、チェックしたIDを含めて新しい配列を返却
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    setSelectedIds((current) =&gt; [...current, recordId]);
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    } else {
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    // チェックを外された場合、チェックしたIDを消す
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    setSelectedIds((current) =&gt; {
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    // すでに選ばれているか念の為確認
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    const targetIndex = current.indexOf(recordId);
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    if (targetIndex === -1) return current;
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    // 該当のindexを切り取って新しい配列を返却
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    return [...current.slice(0, targetIndex), ...current.slice(targetIndex + 1)];
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    });
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    }
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    };
-                </td>
-            </tr>
-        </tbody>
-    </table></code>
+<p class="trans">
+    按钮按下时的句柄，多选框选中时的句柄，在这里做申明。
 </p>
-<p>
-    <br/>
-</p>
-<p>
+
+```javascript
+const buttonHandler = () => {
+  if (selectedIds.length === 0) {
+    alert('什么都没有选中。');
+    return;
+  }
+  // 显示选中的公司名
+  alert(`${selectedIds.map((id) => records.find((r) => r.$id.value === id)?.单行文本框.value).join('\n')}`);
+};
+```
+
+```javascript
+const checkboxHandler = (recordId: string) => (e:React.ChangeEvent<HTMLInputElement>) => {
+  if (e.target.checked) {
+    // 返回含选中复选框的ID的新数组
+    setSelectedIds((current) => [...current, recordId]);
+  } else {
+    // 删除复选框去除时的ID
+    setSelectedIds((current) => {
+      // 确认已经选中的
+      const targetIndex = current.indexOf(recordId);
+      if (targetIndex === -1) return current;
+      // 返回去掉该index的新数组
+      return [...current.slice(0, targetIndex), ...current.slice(targetIndex + 1)];
+    });
+  }
+};
+```
+
+<p class="origin">
     また、7行目にチェックボックスでチェックしたIDを保管するようのState（状態）を定義しています。useStateを使うことで状態を保持することができます。
 </p>
-<table>
-    <tbody>
-        <tr class="firstRow">
-            <td></td>
-            <td>
-                const [selectedIds, setSelectedIds] = useState&lt;string[]&gt;([]);
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    <br/>
+<p class="trans">
+    另外，第7行使用了 State （状态）保存了已选中的ID，使用 useState 可以保持住状态。
 </p>
-<p>
+
+```javascript
+const [selectedIds, setSelectedIds] = useState<string[]>([]);
+```
+
+<p class="origin">
     この内、selectedIdsは今保持しているIDがはいっており、setSelectedIdsでIDのセットができます。
 </p>
-<p>
-    このように、要素の定義と、そのハンドラの定義、状態をセットで書くことができ、一つのコンポーネントとして宣言できます。jQueryなどでは状態をclassなどで表現したりしますが、<br/>ReactではUIと切り分けて状態を保持できるのも大きな利点です。
+<p class="trans">
+    这里面 selectedIds 是存放已选的ID，setSelectedIds设置这次所选ID。
 </p>
+<p class="origin">
+    このように、要素の定義と、そのハンドラの定義、状態をセットで書くことができ、一つのコンポーネントとして宣言できます。jQueryなどでは状態をclassなどで表現したりしますが、<br/>ReactではUIと切り分けて状態を保持できるのも大きな利点です。
+</p class="trans">
 <p>
+    像这样，通过定义元素、定义事件的句柄等可以完整地申明一个组件。<br/>相较于jQuery这种是用 class 来表示状态，React把 UI 和状态分开存放的特点是一大优势。
+</p>
+<p class="origin">
     2. コンポーネントの表示
 </p>
-<p>
-    <br/>
+<p class="trans">
+    2. 组件的显示
 </p>
-<table>
-    <tbody>
-        <tr class="firstRow">
-            <td></td>
-            <td>
-                kintone.events.on(&#39;app.record.index.show&#39;, async (event) =&gt; {
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                const records = event.records as KintoneTypes.SavedCustomer[];
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                const targetEl = document.querySelector(&#39;#target&#39;);
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                if (targetEl == null) return;
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                // Componentを描画
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                ReactDOM.render(&lt;ChecklistComponent records={records} /&gt;, targetEl);
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                });
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    <br/>
-</p>
-<p>
+
+```javascript
+kintone.events.on('app.record.index.show', async (event) => {
+  const records = event.records as KintoneTypes.SavedCustomer[];
+
+  const targetEl = document.querySelector('#target');
+  if (targetEl == null) return;
+  // 显示Component
+  ReactDOM.render(<ChecklistComponent records={records} />, targetEl);
+});
+```
+
+<p class="origin">
     1で定義したコンポーネントは、57行目にあるようにReactDOM.render()で表示することが可能です。
 </p>
-<p>
-    <br/>
+<p class="trans">
+    在1中定义的组件，可以用 ReactDOM.render() 这个方法来显示
 </p>
-<table>
-    <tbody>
-        <tr class="firstRow">
-            <td></td>
-            <td>
-                ReactDOM.render(&lt;ChecklistComponent records={records} /&gt;, targetEl);
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    <br/>
-</p>
-<p>
+
+```javascript
+ReactDOM.render(<ChecklistComponent records={records} />, targetEl);
+```
+
+<p class="origin">
     今回は一覧表示イベントで表示したいため、一覧表示イベントハンドラ内でそれを定義しています。
 </p>
-<p>
+<p class="trans">
+    这次主要想显示列表事件，所以就在列表的事件内逐一定义了。
+</p>
+<p class="origin">
     コンポーネントにはeventオブジェクトに入っているレコードの一覧を渡しています。
 </p>
-<p>
+<p class="trans">
+    把 event 对象内的记录列表传给了组件。
+</p>
+<p class="origin">
     今回のように、汎用的なコンポーネントをいくつか定義しておき、kintoneのイベントハンドラはそれを組み立てるだけの最低限で書くことも可能です。
 </p>
-<h2>
+<p class="trans">
+    像这次这样，申明一些通用的组件，在 kintone 的事件句柄中自由组合这些组件，就可以以一个极小的代码量来完成这些需求。
+</p>
+<h2 class="origin">
     おわりに
 </h2>
-<p>
+<h2 class="trans">
+    结束语
+</h2>
+<p class="origin">
     JavaScriptカスタマイズは、今回のようにReactを活用したり、Vueなどの他フレームワークや、プレーンなJavaScriptも利用できるなど、様々なカスタマイズ方法があります。
 </p>
-<p>
+<p class="trans">
+    JavaScript 的自定义中，可以用本篇中所介绍的 React，也可以用 Vue 等其他的框架，也可以写纯 JavaScript。方法是多种多样的。
+</p>
+<p class="origin">
     自分のプロジェクトにあったカスタマイズ方法は何かを見定めて技術選定をすることで、JavaScriptカスタマイズの運用がスムーズになります。<br/>特にある程度カスタマイズし続ける可能性が見込まれそうな場合、ぜひ今回のようにReactなどの大きな規模にも耐えられるフレームワーク・ライブラリを利用してみるのもいいかと思います。
 </p>
-<p>
+<p class="trans">
+    根据自己项目的特点，选择合适的技术，可以使 JavaScript 的自定义工作更加柔顺。<br/>特别是有持续维护可能性的项目，非常推荐您使用本篇中所介绍的像 React 那样有大项目耐受性的框架。
+</p>
+<p class="origin">
     シリーズの記事一覧は<a href="https://developer.cybozu.io/hc/ja/articles/900005565903">こちら</a>。
 </p>
-<p>
+<p class="trans del">
+    因为没有系列文章的总览表，故不翻译。
+</p>
+<p class="origin">
     このTipsは、2021年9月版 kintone で確認したものになります。
 </p>
-<audio controls="controls" style="display: none;"></audio>
+<p class="trans">
+    该Tips在 kintone 2021年9月版中进行过确认。
+</p>
