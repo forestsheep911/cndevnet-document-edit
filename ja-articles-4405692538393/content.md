@@ -592,8 +592,8 @@ const [selectedIds, setSelectedIds] = useState<string[]>([]);
 </p>
 <p class="origin">
     このように、要素の定義と、そのハンドラの定義、状態をセットで書くことができ、一つのコンポーネントとして宣言できます。jQueryなどでは状態をclassなどで表現したりしますが、<br/>ReactではUIと切り分けて状態を保持できるのも大きな利点です。
-</p class="trans">
-<p>
+</p>
+<p class="trans">
     像这样，通过定义元素、定义事件的句柄等可以完整地申明一个组件。<br/>相较于jQuery这种是用 class 来表示状态，React把 UI 和状态分开存放的特点是一大优势。
 </p>
 <p class="origin">
