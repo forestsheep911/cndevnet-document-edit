@@ -306,6 +306,9 @@ element.on('click', () => {
     会社名が一覧として表示され、チェックできます。
 </p>
 <p class="trans">
+    自定义完成后，将达到这样一个效果：
+</p>
+<p class="trans">
     显示公司名列表，并且可以选择。
 </p>
 <p class="origin">
@@ -327,10 +330,12 @@ element.on('click', () => {
     1.&nbsp;<a href="https://kintone-sol.cybozu.co.jp/apps/031-kokyaku-list.html">顧客リストアプリ</a>を追加する。
 </p>
 <p class="trans">
-    1.添加顾客列表应用
+    1. 添加顾客列表应用<br/>
+    新增一个应用，选择默认安装好的模板“顾客列表”。<br/>
+    创建成功后，初始还没有数据，我们可以自行添加一些测试数据。
 </p>
 <p class="origin">
-    1. カスタマイズビューを設定し、HTMLは下記を指定する。
+    2. カスタマイズビューを設定し、HTMLは下記を指定する。
 </p>
 <p class="trans">
     1. 设置自定义视图，指定 HTML 代码。
@@ -338,14 +343,19 @@ element.on('click', () => {
 ```html
 <div id="target"></div>
 ```
+
+<p class="trans">
+3. 为了配合后面克隆项目中的配置，我们把公司名的字段代码从“单行文本框”改为“会社名”
+</p>
+
 <p>
     <img src="https://developer.cybozu.io/hc/article_attachments/4405692511641/customerDatabase_settings.png" alt="カスタマイズビューの設定画面" title="" style="box-sizing: border-box;border-width: 1px;border-style: solid;border-color: rgb(221, 221, 221);max-width: 800px;vertical-align: middle;cursor: pointer;height: auto"/>
 </p>
 <p>
-    3. Githubからクローンしてコードを用意する。
+    1. Githubからクローンしてコードを用意する。
 </p>
 <p>
-    3. 从 Github上克隆代码。
+    4. 从 Github上克隆代码。
 </p>
 <p>
     <a href="https://github.com/cybozudevnet/sample-kintone-webpack-for-intermediate">https://github.com/cybozudevnet/sample-kintone-webpack-for-intermediate</a>
@@ -394,7 +404,7 @@ const ChecklistComponent: React.FC<{records: KintoneTypes.SavedCustomer[]}> = ({
       return;
     }
     // 显示选中的公司名
-    alert(`${selectedIds.map((id) => records.find((r) => r.$id.value === id)?.单行文本框.value).join('\n')}`);
+    alert(`${selectedIds.map((id) => records.find((r) => r.$id.value === id)?.会社名.value).join('\n')}`);
   };
 
   // 点击复选框时的句柄
@@ -421,7 +431,7 @@ const ChecklistComponent: React.FC<{records: KintoneTypes.SavedCustomer[]}> = ({
       return <div style={{margin: '4px 8px'}} key={record.$id.value}>
         <label>
           <input type="checkbox" onChange={checkboxHandler(record.$id.value)} checked={selectedIds.includes(record.$id.value)}/>
-          <span style={{paddingLeft: '4px'}}>{record.单行文本框.value}</span>
+          <span style={{paddingLeft: '4px'}}>{record.会社名.value}</span>
         </label>
       </div>;
     })}
@@ -474,7 +484,7 @@ const ChecklistComponent: React.FC<{records: KintoneTypes.SavedCustomer[]}> = ({
       return;
     }
     // 显示选中的公司名
-    alert(`${selectedIds.map((id) => records.find((r) => r.$id.value === id)?.单行文本框.value).join('\n')}`);
+    alert(`${selectedIds.map((id) => records.find((r) => r.$id.value === id)?.会社名.value).join('\n')}`);
   };
 
   // 返回含选中复选框的ID的新数组
@@ -501,7 +511,7 @@ const ChecklistComponent: React.FC<{records: KintoneTypes.SavedCustomer[]}> = ({
       return <div style={{margin: '4px 8px'}} key={record.$id.value}>
         <label>
           <input type="checkbox" onChange={checkboxHandler(record.$id.value)} checked={selectedIds.includes(record.$id.value)}/>
-          <span style={{paddingLeft: '4px'}}>{record.单行文本框.value}</span>
+          <span style={{paddingLeft: '4px'}}>{record.会社名.value}</span>
         </label>
       </div>;
     })}
@@ -551,7 +561,7 @@ const buttonHandler = () => {
     return;
   }
   // 显示选中的公司名
-  alert(`${selectedIds.map((id) => records.find((r) => r.$id.value === id)?.单行文本框.value).join('\n')}`);
+  alert(`${selectedIds.map((id) => records.find((r) => r.$id.value === id)?.会社名.value).join('\n')}`);
 };
 ```
 
