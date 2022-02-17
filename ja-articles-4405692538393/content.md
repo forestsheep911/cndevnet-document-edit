@@ -44,7 +44,7 @@
     React 是 Facebook 和 React社区为构筑用户界面而开发的 JavaScript 库。
 </p>
 <p>
-    现在解说一下<a href="https://ja.reactjs.org/">React 的官方网站</a>上所记载的三个特征。
+    现在解说一下<a href="https://zh-hans.reactjs.org/">React 的官方网站</a>上所记载的三个特征。
 </p>
 <h3>
     声明式
@@ -55,6 +55,13 @@
 <p>
     举个例子，根据如下需求写出代码：“按下按钮后，元素的颜色在红色和绿色之间反复切换”
 </p>
+<ul class=" list-paddingleft-2" style="list-style-type: disc;">
+    <li>
+        <p>
+            jQuery
+        </p>
+    </li>
+</ul>
 <pre class="brush:js;toolbar:false">const element = $(&#39;#target&#39;);
 element.on(&#39;click&#39;, () =&gt; {
   if(this.backgroundColor === &#39;red&#39;) {
@@ -63,6 +70,18 @@ element.on(&#39;click&#39;, () =&gt; {
     this.backgroundColor = &#39;red&#39;;
   }
 });</pre>
+<ul class=" list-paddingleft-2" style="list-style-type: disc;">
+    <li>
+        <p>
+            React
+        </p>
+    </li>
+</ul>
+<pre class="brush:js;toolbar:false">const Element = () =&gt; {
+  const [color, setColor] = useState(&#39;red&#39;);
+  const clickHandler = () =&gt; color === &#39;red&#39; ? setColor(&#39;blue&#39;) : setColor(&#39;red&#39;);
+  return &lt;div styles={{ backgroundColor: color}} onClick={clickHandler}&gt;
+};</pre>
 <p>
     只有很少的代码，可能怎么写区别都不大，拿 jQuery 来说，可以从任何地方追加事件的句柄。<br/>还有“这个元素现在是什么颜色？”类似这种状态也要用代码管理起来的话，<br/>渐渐的越来越复杂，到最后难以维系正常的动作。<br/>React 则会把 DOM 和状态分开管理，状态一目了然。<br/>
 </p>
@@ -70,7 +89,7 @@ element.on(&#39;click&#39;, () =&gt; {
     基于组件
 </h3>
 <p>
-    在 React 中，组件自身能管理状态，并用搭建胶囊化的组件的方式，来构筑复杂的用户界面。
+    在 React 中，组件自身能管理状态，并用搭建封装组件的方式，来构筑复杂的用户界面。
 </p>
 <p>
     组件的逻辑是，不用 Template 而是直接可以写 JavaScript 代码，以便在程序中简单地获取各种各样的数据<br/>并且可以让 DOM 不带自身的状态。
@@ -85,7 +104,7 @@ element.on(&#39;click&#39;, () =&gt; {
     React 可以和其他技术并存而不产生冲突。<br/>使用 React 追加新功能时也不必更换既有代码。
 </p>
 <p>
-    React 在自建服务器或租赁服务器上都可运作，React Native则可以使你的程序运行在手机上，所以一旦掌握了可以在各处使用。
+    React 可以使用在服务端渲染上，React Native则可以使你的程序运行在手机上，所以一旦掌握了可以在各处使用。
 </p>
 <h2>
     React 引入时的注意点
@@ -99,7 +118,7 @@ element.on(&#39;click&#39;, () =&gt; {
 <ul class=" list-paddingleft-2">
     <li>
         <p>
-            &nbsp;和jQuery或纯 JavaScript 相比较，最大的强项是可以写声明式。
+            &nbsp;和 jQuery 或纯 JavaScript 相比较，最大的强项是可以写声明式。
         </p>
     </li>
     <ul class=" list-paddingleft-2" style="list-style-type: square;">
