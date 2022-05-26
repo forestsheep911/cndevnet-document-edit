@@ -214,8 +214,20 @@
     <br/>
 </p>
 <p>
-    &nbsp;补充说明：变量可以随意增加，但改变量名必须谨慎，因为牵涉到要改所有相关Request。
+    &nbsp;补充说明：
 </p>
+<ul class=" list-paddingleft-2">
+    <li>
+        <p>
+            默认大部分都是以api token方式进行认证，请预先设置好变量。你也可以在postman的header中通过修改KEY来选择不同的认证方式。
+        </p>
+    </li>
+    <li>
+        <p>
+            变量可以随意增加，但改变量名必须谨慎，因为牵涉到要改所有相关Request。
+        </p>
+    </li>
+</ul>
 <p>
     <br/>
 </p>
