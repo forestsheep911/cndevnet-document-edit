@@ -24,7 +24,7 @@
     </li>
 </ul>
 <p>
-    <span style="font-size: 24px; font-weight: 700;">前言</span>
+    <span style="font-size:24px;font-weight:700;">前言</span>
 </p>
 <h3>
     Notion简介
@@ -79,7 +79,7 @@
     </li>
     <li>
         <p>
-            <img src="https://files.kf5.com/attachments/download/23361/14160799/001636475758ce7dd24bce186d67b9b/"/><br/>
+            <img src="https://files.kf5.com/attachments/download/23361/14160799/001636475758ce7dd24bce186d67b9b/" alt="001636475758ce7dd24bce186d67b9b"/><br/>
         </p>
     </li>
     <li>
@@ -89,7 +89,7 @@
     </li>
     <li>
         <p>
-            <img src="https://files.kf5.com/attachments/download/23361/14160802/00163647575b84f88c644095bd9a9e2/"/><br/>
+            <img src="https://files.kf5.com/attachments/download/23361/14160802/00163647575b84f88c644095bd9a9e2/" alt="00163647575b84f88c644095bd9a9e2"/><br/>
         </p>
     </li>
     <li>
@@ -99,7 +99,7 @@
     </li>
     <li>
         <p>
-            <img src="https://files.kf5.com/attachments/download/23361/14160800/00163647575931d9df2e0ff47445c3a/"/><br/>
+            <img src="https://files.kf5.com/attachments/download/23361/14160800/00163647575931d9df2e0ff47445c3a/" alt="00163647575931d9df2e0ff47445c3a"/><br/>
         </p>
     </li>
 </ul>
@@ -114,7 +114,7 @@
     </li>
     <li>
         <p>
-            <img src="https://files.kf5.com/attachments/download/23361/14160803/00163647575c9ade0f4df9263757316/"/><br/>
+            <img src="https://files.kf5.com/attachments/download/23361/14160803/00163647575c9ade0f4df9263757316/" alt="00163647575c9ade0f4df9263757316"/><br/>
         </p>
     </li>
     <li>
@@ -138,7 +138,7 @@
     </li>
     <li>
         <p>
-            <img src="https://files.kf5.com/attachments/download/23361/14160801/00163647575a49544f86f1188ef8358/"/><br/>
+            <img src="https://files.kf5.com/attachments/download/23361/14160801/00163647575a49544f86f1188ef8358/" alt="00163647575a49544f86f1188ef8358"/><br/>
         </p>
         <h3>
             程序编写运行环境方面
@@ -162,7 +162,12 @@
 <h2>
     代码范例
 </h2>
-<pre class="brush:js;toolbar:false;">import { Client } from &#39;@notionhq/client&#39;import { KintoneRestAPIClient } from &#39;@kintone/rest-api-client&#39;// 用Notion的sdk创建一个客户端const notion = new Client({ auth: &#39;secret_CNqoK82a5MQaBosS6jMEahHbQhX2806zNljRgShGuK&#39; })// 获取Notion数据const iterateDB = async () =&gt; {
+<pre class="brush:js;toolbar:false">import { Client } from &#39;@notionhq/client&#39;
+import { KintoneRestAPIClient } from &#39;@kintone/rest-api-client&#39;
+// 用Notion的sdk创建一个客户端
+const notion = new Client({ auth: &#39;secret_CNqoK82a5MQaBosS6jMEahHbQhX2806zNljRgShGuK&#39; })
+// 获取Notion数据
+const iterateDB = async () =&gt; {
   // 获取Notion的database
   const dbArray = await notion.databases.query({ database_id: &#39;b269007a9a44488d9ff7fe0c646179c9&#39; })
   // 获取database的属性
@@ -206,22 +211,37 @@
       return { ...record }
     }),
   )
-  return { records: propertitsSet }}const notionDBRecords = await iterateDB()// Notion属性名和kintone App中字段代码的对应关系const fieldCodeMap = {
+  return { records: propertitsSet }
+}
+const notionDBRecords = await iterateDB()
+// Notion属性名和kintone App中字段代码的对应关系
+const fieldCodeMap = {
   书名: &#39;book_name&#39;,
   ISBN: &#39;isbn&#39;,
   作者: &#39;author&#39;,
   定价: &#39;price&#39;,
-  标签: &#39;label&#39;,}// 上传kintone的对象是有一定的格式要求，所以需要把数据加工一下for (const record of notionDBRecords.records) {
+  标签: &#39;label&#39;,
+}
+// 上传kintone的对象是有一定的格式要求，所以需要把数据加工一下
+for (const record of notionDBRecords.records) {
   for (const [key, value] of Object.entries(record)) {
     if (value) {
       record[fieldCodeMap[Object.keys(value)[0]]] = { value: Object.values(value)[0] }
     }
     delete record[key]
-  }}notionDBRecords.app = // 调用kintone sdk把数据添加到kintoneconst client = new KintoneRestAPIClient({
+  }
+}
+notionDBRecords.app = 999
+// 调用kintone sdk把数据添加到kintone
+const client = new KintoneRestAPIClient({
   baseUrl: &#39;https://yourdomain.cybozu.cn&#39;,
   auth: {
     apiToken: &#39;WKuCUxqW8gRYrgs57w5UVAU9GUKYPaTU210MJ0bx&#39;,
-  },})const kintoneResponse = await client.record.addRecords(notionDBRecords)// 观察response来判断是否成功console.log(kintoneResponse)</pre>
+  },
+})
+const kintoneResponse = await client.record.addRecords(notionDBRecords)
+// 观察response来判断是否成功
+console.log(kintoneResponse)</pre>
 <h2>
     代码解说
 </h2>
@@ -253,11 +273,11 @@
     范例中的代码，有些地方是为了书写方便或是测试数据本身没有复杂结构等原因，没有很详细的把逻辑全面覆盖。
 </p>
 <p>
-    譬如26行等多出有<span style="color: rgb(84, 141, 212);">results[0]</span><span style="font-size: 16px;">的出现。</span>
+    譬如26行等多出有<span style="color:rgb(84,141,212);">results[0]</span><span style="font-size:16px;">的出现。</span>
 </p>
 <pre>if (propertyData.results[0].type === &#39;title&#39;) {</pre>
 <p>
-    其实<span style="color: rgb(84, 141, 212);">results</span>的数组长度可不一定是1，因为像title这种数据类型可能是由多个富文本块所拼接构成。而每个富文本块还有他自己的一套格式数据。如果读者在实际编写中有需要解析这种数据的，请酌情把数据继续一层层解析下去，范例中就不赘述了。
+    其实<span style="color:rgb(84,141,212);">results</span>的数组长度可不一定是1，因为像title这种数据类型可能是由多个富文本块所拼接构成。而每个富文本块还有他自己的一套格式数据。如果读者在实际编写中有需要解析这种数据的，请酌情把数据继续一层层解析下去，范例中就不赘述了。
 </p>
 <h3>
     机密情报
