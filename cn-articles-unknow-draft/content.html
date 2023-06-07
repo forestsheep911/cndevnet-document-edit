@@ -9,12 +9,12 @@
     </li>
     <li>
         <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#step2">明确共识</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#step1.1">明确共识</a>
         </p>
     </li>
     <li>
         <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#step2">引出问题</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#step1.2">引出问题</a>
         </p>
     </li>
     <li>
@@ -24,12 +24,12 @@
     </li>
     <li>
         <p>
-            <a href="#step2">扩大适用范围：plugin</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#step2.1">优缺点</a>
         </p>
     </li>
     <li>
         <p>
-            <a href="#step2">前期准备</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#step2.2">更进一步</a>
         </p>
     </li>
     <li>
@@ -39,7 +39,22 @@
     </li>
     <li>
         <p>
-            <a href="#step4"></a>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#step3.1">开发准备</a>
+        </p>
+    </li>
+    <li>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#step3.2">代码解读</a>
+        </p>
+    </li>
+    <li>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#step3.3">友情提示</a>
+        </p>
+    </li>
+    <li>
+        <p>
+            <a href="#step4">结束语</a>
         </p>
     </li>
 </ul>
@@ -103,9 +118,6 @@
         </p>
     </li>
 </ol>
-<p>
-    <br/>
-</p>
 <p>
     然后，这时候需求增加，有一个叫 C 的 App 也希望能参照 A，于是，开发人员编辑对 A
  &nbsp;的自定义，在找参照的地方模仿 B，同样的逻辑， 再更新一遍 C。
@@ -268,8 +280,8 @@
     下面我会讲一下本次开发中运用到的技术，以及为什么会这样选择的缘由。
 </p>
 <p>
-    <strong>插件。&nbsp;&nbsp;</strong>在接下来的开发过程介绍中，我会以插件开发为例来讲述。所以如果有读者对插件开发不熟悉的话，可以先看参这两篇文章：<strong><a href="/hc/kb/article/1000576/">
- &nbsp; &nbsp;插件开发的准备，</a><a href="/hc/kb/section/1/"> 插件开发流程</a>。</strong>
+    <strong>插件。&nbsp;&nbsp;</strong>在接下来的开发过程介绍中，我会以插件开发为例来讲述。所以如果有读者对插件开发不熟悉的话，可以先看参这两篇文章：<a href="/hc/kb/article/1000576/">
+ &nbsp; &nbsp;插件开发的准备，</a><a href="/hc/kb/section/1/"> 插件开发流程</a>。
 </p>
 <p>
     <strong>Vue。&nbsp;&nbsp;</strong>因为涉及到插件开发，在配置页面，必定会产生画面的制作，并且会产生前后台的数据交换逻辑。这时候我们采用前端框架制作画面上的一部分元素，会是一个不错的选择。当然这里选择
@@ -398,42 +410,36 @@
     <li>
         <p>
             <strong>ConfigPage.vue</strong><br/>
- &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Vue
- &nbsp; &nbsp; &nbsp;的组件文件。负责插件配置页面的画面摆放和逻辑交互。
+ &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Vue 的组件文件。负责插件配置页面的画面摆放和逻辑交互。
         </p>
     </li>
     <li>
         <p>
             <strong>desktop.ts</strong><br/>
- &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;用户使用 App
- &nbsp; &nbsp; &nbsp;时起作用。负责读取插件配置信息，和主要功能的实现。
+ &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;用户使用 App 时起作用。负责读取插件配置信息，和主要功能的实现。
         </p>
     </li>
     <li>
         <p>
             <strong>DesktopPage.vue</strong><br/>
- &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Vue
- &nbsp; &nbsp; &nbsp;的组件文件。可以在列表画面或者详细画面做一些自定义的UI，譬如做一个 switch
- &nbsp; &nbsp; &nbsp;按钮来切换新老数据的展示。不包括在本次项目代码解说中。
+ &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Vue 的组件文件。可以在列表画面或者详细画面做一些自定义的UI，譬如做一个 switch 按钮来切换新老数据的展示。不包括在本次项目代码解说中。
         </p>
     </li>
     <li>
         <p>
             <strong>fields.d.ts</strong><br/>
- &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;补充了一些 kintone
- &nbsp; &nbsp; &nbsp;公用字段的类型信息等。本项目未必为用到，作为通用文件存在。
+ &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;补充了一些 kintone 公用字段的类型信息等。本项目未必为用到，作为通用文件存在。
         </p>
     </li>
     <li>
         <p>
             <strong>lookup.ts</strong><br/>
- &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;定义了 lookup
- &nbsp; &nbsp; &nbsp;类型的外壳，并包装了获取 lookup 参照信息的 API。
+ &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;定义了 lookup 类型的外壳，并包装了获取 lookup 参照信息的 API。
         </p>
     </li>
 </ul>
 <p>
-    下面我们逐个解读代码。为了说明方便，我会尽量在代码中用注释来解释。
+    下面我们逐个解读代码。请对照代码中的注释来理解实现的功能。
 </p>
 <p>
     <strong> &nbsp; &nbsp; &nbsp; &nbsp;config.html&nbsp; &nbsp;&nbsp;</strong>
@@ -471,7 +477,7 @@ export type Lookup = {
 }
 // 创建sdk客户端
 const client = new KintoneRestAPIClient({
-  baseUrl: &#39;https://cndevqpofif.cybozu.cn&#39;,
+  baseUrl: &#39;https://yourdomain.cybozu.cn&#39;,
 })
 // 获取一个应用中所有类型是Lookup的字段
 export const getFormSetting = async () =&gt; {
@@ -480,5 +486,332 @@ export const getFormSetting = async () =&gt; {
   return lookUpFields
 }</pre>
 <p>
-    <strong><br/></strong><br/>
+    <strong> &nbsp; &nbsp; &nbsp; &nbsp;ConfigPage.vue&nbsp; &nbsp; &nbsp;</strong>
+</p>
+<pre class="brush:js;toolbar:false">&lt;template&gt;
+  &lt;!-- 一个循环获取Lookup字段的模板 --&gt;
+  &lt;div v-for=&quot;i in data.saveConfig&quot; :key=&quot;i.label&quot; class=&quot;config-row&quot;&gt;
+    &lt;span class=&quot;toggle-wrapper&quot;&gt;
+      &lt;input :id=&quot;`css${i.label}`&quot; v-model=&quot;i.checked&quot; type=&quot;checkbox&quot; /&gt;
+      &lt;label class=&quot;toggle&quot; :for=&quot;`css${i.label}`&quot;&gt;&lt;span class=&quot;toggle-handler&quot;&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;/span&gt;
+    &lt;span class=&quot;lookup-field-name-text-parent&quot;&gt;
+      &lt;span class=&quot;control-label-gaia lookup-field-name-text&quot;&gt;{{ i.label }}&lt;/span&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;kintoneplugin-row&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;js-cancel-button kintoneplugin-button-dialog-cancel&quot; @click=&quot;cancel&quot;&gt;Cancel&lt;/button&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;kintoneplugin-button-dialog-ok&quot; @click=&quot;save&quot;&gt;Save&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script setup lang=&quot;ts&quot;&gt;
+/* eslint-disable no-console */
+import { reactive, onMounted } from &#39;vue&#39;
+import { getFormSetting, Lookup } from &#39;./lookup.ts&#39;
+// 接受外面传递过来的pluginId
+const props = defineProps&lt;{ pluginId: string }&gt;()
+// 用到的数据声明，并且是响应式的
+const data: { config: Lookup[]; saveConfig: Array&lt;{ label: string; checked: boolean; code: string }&gt; } = reactive({
+  config: [],
+  saveConfig: [],
+})
+onMounted(async () =&gt; {
+  const gettedConfig = kintone.plugin.app.getConfig(props.pluginId)
+  data.saveConfig = JSON.parse(gettedConfig.setting)
+  // 拿到所有是Lookup的字段
+  const res: Lookup[] = await getFormSetting()
+  // 比对上次保存的结果，并确定哪些勾选哪些不勾选
+  const cp = res.map((i) =&gt; {
+    for (let j = 0; j &lt; data.saveConfig.length; j += 1) {
+      if (data.saveConfig[j].code === i.code) {
+        return { code: i.code, label: i.label, checked: data.saveConfig[j].checked }
+      }
+    }
+    return { code: i.code, label: i.label, checked: false }
+  })
+  data.saveConfig = cp
+})
+// 按下保存按钮时的操作：用plugin的API来保存到kintone内
+function save() {
+  kintone.plugin.app.setConfig({ setting: JSON.stringify(data.saveConfig) })
+}
+// 按下取消按钮时的操作：退回到plugin默认页面
+function cancel() {
+  window.location.href = `../../${kintone.app.getId()}/plugin/`
+}
+&lt;/script&gt;
+// 引入css
+&lt;style&gt;
+@import &#39;../css/config.css&#39;;
+&lt;/style&gt;</pre>
+<p>
+    <strong> &nbsp; &nbsp; &nbsp; &nbsp;config.css&nbsp; &nbsp; &nbsp;</strong>
+</p>
+<p>
+    config画面的css，主要是开关按钮的效果
+</p>
+<pre class="brush:css;toolbar:false">.settings-heading {
+  font-size: 1.8em;
+}
+.config-check-box {
+  width: 1.2em;
+  height: 1.2em;
+}
+.config-row {
+  height: 4.6em;
+}
+.lookup-field-name-text-parent {
+  position: relative;
+  top: -0.64em;
+  margin-left: 1.2em;
+}
+.lookup-field-name-text {
+  font-size: 1.5em;
+}
+.toggle-wrapper {
+  overflow: hidden;
+  transform: translate3d(-50%, -50%, 0);
+}
+.toggle-wrapper input {
+  position: absolute;
+  left: -99em;
+}
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  width: 120px;
+  height: 50px;
+  background: #d21626;
+  border-radius: 5px;
+  transition: all 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.toggle::before,
+.toggle::after {
+  position: absolute;
+  line-height: 50px;
+  font-size: 14px;
+  z-index: 2;
+  transition: all 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.toggle::before {
+  content: &#39;OFF&#39;;
+  left: 20px;
+  color: #d21626;
+}
+.toggle::after {
+  content: &#39;ON&#39;;
+  right: 20px;
+  color: #fff;
+}
+.toggle-handler {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  width: 65px;
+  height: 44px;
+  border-radius: 3px;
+  top: 3px;
+  left: 3px;
+  transition: all 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transform: translateX(0);
+}
+input:checked + .toggle {
+  background: #66b317;
+}
+input:checked + .toggle::before {
+  color: #fff;
+}
+input:checked + .toggle::after {
+  color: #66b317;
+}
+input:checked + .toggle .toggle-handler {
+  width: 54px;
+  transform: translateX(60px);
+  border-color: #fff;
+}</pre>
+<p>
+    <strong> &nbsp; &nbsp; &nbsp; &nbsp;desktop.ts&nbsp; &nbsp; &nbsp;</strong>
+</p>
+<p>
+    <span style="font-size:16px;">定义和通用方法：</span>
+</p>
+<pre class="brush:js;toolbar:false">import { KintoneRestAPIClient } from &#39;@kintone/rest-api-client&#39;
+import { getFormSetting, Lookup } from &#39;./lookup.ts&#39;
+const pid = kintone.$PLUGIN_ID
+const client = new KintoneRestAPIClient({
+  baseUrl: &#39;https://yourdomain.cybozu.cn&#39;,
+})
+kintone.events.on(&#39;app.record.edit.submit&#39;, (event: KintoneEvent) =&gt; {
+  return event
+})
+// 需要更详细的结构，所以扩充了Lookup类型
+type SpecificLookup = Lookup &amp; {
+  lookup: {
+    relatedApp: { app: string; code: string } // 所参照的app
+    fieldMappings: Array&lt;{ field: string; relatedField: string }&gt; // 同时复制的字段
+    relatedKeyField: string // 本lookup字段的字段代码
+  }
+}
+/**
+ * 根据所给的需要参照的app，给出该条记录的信息。record的编号则需要通过解析href得到
+ * @param targetApp
+ * @param hle
+ * @returns
+ */
+async function getTargetRecord(targetApp: string, hle: HTMLAnchorElement) {
+  const targetRecordId = (hle.href.match(/record=(\d+)/) as string[])[1]
+  const targetRecord = await client.record.getRecord({ app: targetApp, id: targetRecordId })
+  return targetRecord
+}</pre>
+<p>
+    在详细页面做的自定义：
+</p>
+<pre class="brush:js;toolbar:false">// 在详细页面做的事
+kintone.events.on(&#39;app.record.detail.show&#39;, async (event) =&gt; {
+  // 先拿到插件的设定，表示哪些lookup字段需要适用实时参照功能
+  const savedConfig: Array&lt;{ label: string; checked: boolean; code: string }&gt; = JSON.parse(
+    kintone.plugin.app.getConfig(pid).setting,
+  )
+  // 拿到本app的form信息，从中只拿lookup字段的信息
+  const lookupSetting: SpecificLookup[] = (await getFormSetting()) as SpecificLookup[]
+  // 比对form信息和插件设定信息，从而得到一个真正需要起作用的lookup字段们
+  // 我不需要得到比设定内容更多的lookup，即使新增了lookup字段，却还未在插件中设定过，反正默认他们也是disable，所以以savedConfig为基础循环比较好
+  const enabledLookupSetting = savedConfig.map((i) =&gt; {
+    for (let j = 0; j &lt; lookupSetting.length; j += 1) {
+      if (i.checked &amp;&amp; lookupSetting[j].code === i.code) {
+        // saveConfig中只有最基础的信息，而我们在这里将要使用很多lookup中的设定信息，比如参照的app，其他要复制的字段的对应关系等，所以这里返回SpecificLookup类的东西
+        return lookupSetting[j]
+      }
+    }
+    return undefined
+  })
+  // 对这些lookup字段们进行循环
+  for (let i = 0; i &lt; enabledLookupSetting.length; i += 1) {
+    // 简化变量名且帮助ts检查空
+    const els = enabledLookupSetting[i]
+    if (els) {
+      const code = els.code as string
+      // 拿到looup的html元素，希望它是一个&lt;a&gt;即HTMLAnchorElement,但其实并不一定，因为如果是空，kintone给出的结构将跳过&lt;a&gt;这一层，直接给下一层的&lt;span&gt;
+      const anchorEle = (kintone.app.record.getFieldElement(code) as HTMLElement).firstChild
+      // 如果不是&lt;a&gt;,即没有参照信息，接下来所有的操作都可以跳过了，这个判断也cover了href为空的可能性
+      if (anchorEle &amp;&amp; anchorEle instanceof HTMLAnchorElement) {
+        const targetRecord = await getTargetRecord(els.lookup.relatedApp.app, anchorEle)
+        // 正常情况下，spanEle 会是一个 instance of HTMLSpanElement，但万一是其他，反正textContent也应该拿得到，这里就先不加断言
+        const spanEle = anchorEle.firstChild
+        if (spanEle &amp;&amp; spanEle.textContent) {
+          // 把lookup所参照的值赋值给元素
+          // 注意，这里不能用赋值给event.record；return event;来做，因为kookup类型的字段，kintone不支持通过event来改变值
+          // 得到值的写法比较繁琐，这是由于所参照的app的字段代码，在lookup的设定对象嵌套比较深
+          // 另一种考虑是不再获取sapn，直接给anchorELe赋值，也能达到差不多的效果，优点是简单，缺点是改变了结构，span消失了
+          spanEle.textContent = targetRecord?.record[els.lookup.relatedKeyField].value as string
+          // 其他要复制的字段也要把参照值复制过来
+          // 写在这个if下的原因是，如果lookup的值不是参照来的，那为了数据一致性，其他要赋值的字段最好也不要显示参照的值
+          els.lookup.fieldMappings.map((mapping) =&gt; {
+            // 拿到参照字段的元素
+            const refEl = (kintone.app.record.getFieldElement(mapping.field) as HTMLElement).firstChild
+            if (!refEl || !refEl.textContent) return null
+            // 拿到要复制的值
+            const overwriteValue = targetRecord?.record[mapping.relatedField].value
+            // 判断一下需要复制的值是什么类型的，一般是文本框之类的都是string
+            // 但是如果是用户选择类型之类的话，就需要根据具体情况，特殊设计了
+            if (typeof overwriteValue === &#39;string&#39;) {
+              refEl.textContent = overwriteValue as string
+            }
+            return null
+          })
+        }
+      }
+    }
+  }
+  return event
+})</pre>
+<p>
+    在列表页面的自定义
+</p>
+<pre class="brush:js;toolbar:false">// 在列表页面要做的事
+kintone.events.on(&#39;app.record.index.show&#39;, async (event) =&gt; {
+  const savedConfig: Array&lt;{ label: string; checked: boolean; code: string }&gt; = JSON.parse(
+    kintone.plugin.app.getConfig(pid).setting,
+  )
+  const lookupSetting: SpecificLookup[] = (await getFormSetting()) as SpecificLookup[]
+  const enabledLookupSetting = savedConfig.map((i) =&gt; {
+    for (let j = 0; j &lt; lookupSetting.length; j += 1) {
+      if (i.checked &amp;&amp; lookupSetting[j].code === i.code) {
+        return lookupSetting[j]
+      }
+    }
+    return undefined
+  })
+  for (let i = 0; i &lt; enabledLookupSetting.length; i += 1) {
+    const els = enabledLookupSetting[i]
+    if (els) {
+      const code = els.code as string
+      // 拿到表格中的td元素们
+      const tdEls = kintone.app.getFieldElements(code)
+      tdEls?.map(async (tdEl) =&gt; {
+        const anchorEl = tdEl.querySelector(&#39;a&#39;) as HTMLAnchorElement
+        const targetRecord = await getTargetRecord(els.lookup.relatedApp.app, anchorEl)
+        // Lookup元素的值改为关联字段的值
+        anchorEl?.textContent &amp;&amp;
+          (anchorEl.textContent = targetRecord?.record[els.lookup.relatedKeyField].value as string)
+      })
+    }
+  }
+  return event
+})</pre>
+<p>
+    <strong> &nbsp; &nbsp; &nbsp; &nbsp;fields.d.ts</strong>
+</p>
+<pre class="brush:js;toolbar:false">declare namespace kintone {
+  const $PLUGIN_ID: string
+}
+declare namespace kintone.types {
+  interface Fields {}
+  interface SavedFields extends Fields {
+    [key: string]: { type: string; value: string | number | boolean }
+    $id: kintone.fieldTypes.Id
+    $revision: kintone.fieldTypes.Revision
+    更新人: kintone.fieldTypes.Modifier
+    创建人: kintone.fieldTypes.Creator
+    更新时间: kintone.fieldTypes.UpdatedTime
+    创建时间: kintone.fieldTypes.CreatedTime
+    key: kintone.fieldTypes.RecordNumber
+  }
+}
+interface KintoneEvent {
+  record: kintone.types.SavedFields
+}</pre>
+<p>
+    编写完代码，调试没有问题之后，我们看到了效果。详细画面的电话号码已经显示为最新的【99990000】了。
+</p>
+<p>
+    <img style="width:400px;" src="https://s3.bmp.ovh/imgs/2023/06/05/737ce439323e4dbf.png" alt=""/>
+</p>
+<h3>
+    友情提示
+</h3>
+<ul class=" list-paddingleft-2">
+    <li>
+        <p>
+            上方展示的代码只是一种示范例子，有些地方可能并不完美。读者可根据自身需求进行改造。
+        </p>
+    </li>
+    <li>
+        <p>
+            建议加一个总体切换的按钮，在最新数据和原始数据直接随意切换。这样可以让用户时时刻刻意识到自己在看什么样的数据。
+        </p>
+    </li>
+    <li>
+        <p>
+            在列表页面，范例中只做到了 Lookup 字段自身的改变，复制的字段，还请读者自行完成。
+        </p>
+    </li>
+</ul>
+<h2>
+    结束语
+</h2>
+<p>
+    本篇文章对 Lookup 要查看最新数据的需求进行了分析，并提出与传统做法不同的，只有看数据时才改变显示数据的新思路。一方面可以解决 Lookup 一直以来的一种需求，另外这种思路也可为其他的开发场景提供一些启发。
 </p>
