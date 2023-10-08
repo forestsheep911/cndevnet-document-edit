@@ -178,6 +178,52 @@
 </p>
 <img src="" alt="">
 <p>
-    紧接下来的文档中，还提到了 css 的使用，同样我们也可以使用 CND 的方式，和 JS 类似，也是添加好 url 即可。这里也许有同学要问，我不用 css 行不行，或者我自己写行不行？我这里还是以初学者的观点出发回答：不太行。不用 css 整个播放块排版会乱掉，自己写 css 要控制的东西太多，初学者完全没必要去搞这些事情。真的要搞也要等基础功能做完整了，再去锦上添花比较好。
+    紧接下来的文档中，还提到了 css 的使用，同样我们也可以使用 CND 的方式，和 JS 类似，也是添加好 url 即可。这里也许有同学要问，我不用 css 行不行，或者我自己写行不行？我这里还是以初学者的观点出发回答：不太行。不用 css 整个播放块排版会乱掉，自己写 css 要控制的东西太多，初学者完全没必要去搞这些事情。真的要搞也要等基础功能做完整了，再去锦上添花比较好。总之，这里还是老老实实的用他给的 css 就行。
 </p>
-
+<p>
+    接下来我们就要开始写代码了，在这之前，我还有一个小建议：如果你不是对自己的的代码特别有信心，我认为还是写一小块，就实际调试一次，console log 打印一下阶段性的结果，以确保这一小段达到了自己的预期。这样的好处是，如果你写的代码有问题，可以及时发现，不至于一口气写完，最后发现自己的代码有问题，都不知道从哪里下手修改了。
+</p>
+<p>
+    现在开始正式写代码。首先，我们的代码触发的时机是【纪录详情页面显示之后】，所以我们可以到相应的事件的文档查阅规范写法。如果你不知道怎么查事件，可以先去<a href="https://cybozudev.kf5.com/hc/kb/article/1303568/">事件列表</a>寻找你所需要的事件，然后再看<a href="https://cybozudev.kf5.com/hc/kb/article/205422/">事件写法的说明</a>。根据【纪录详情页面显示之后】的代码范例，我们知道我们所有的代码都应该在这个事件的回调函数中写出。
+</p>
+<pre>
+    kintone.events.on('app.record.detail.show', function(event) {
+        window.alert("记录详情页面已打开");
+        return event;
+    });
+</pre>
+<p>
+    接下来，我们要先找到页面中是附件的元素，否则无从判断它是不是视频。这里需要用到 JS 中一个很基础的操作，元素的选取。元素的选取可以帮助我们拿到整个页面中，符合我们需求的元素的句柄，因为在程序的世界中，开始对某个东西操作之前，一定要拿到它的句柄，否则你不知道你要操作的是哪个东西。（如果你对句柄这个词感到陌生，那你或许听说过下面这些词：【参照】【引用】【地址】，他们的基本意思都是一样的。）
+</p>
+<p>
+    回到元素的选择，在原生 JS 中，就提供了一系列的方法让我们可以方便的选取元素，他们是以 document.getElement 开头的一系列方法，例如 document.getElementById，document.getElementsByClassName，document.getElementsByTagName 等等。这些方法的使用方法可以在 MDN 上查阅，这里就不展开讲了。他们分别是通过 id，class，tag 来选取元素的。这几个方法比较基础。另外还有两个综合性的方法，即 document.querySelector 和 document.querySelectorAll。他们唯一的区别是前者只会选取第一个符合条件的元素，后者会选取所有符合条件的元素，即你会得到一个数组结果。而这两个综合性的方法，它们的参数是一个 css 选择器，关于 css 选择器的知识，要展开的话可以讲很多，这里我们只要知道，他规定了很多规则，然后这些规则又可以互相叠加组合，从而达到选取复杂特征元素的目的。而前面几个基础性的方法，它们的参数只是一个字符串，只能选取单一特征的元素。
+</p>
+<p>
+    根据我们之前的观察，下面这段 html 代码就是一个典型的附件。
+</p>
+<pre>
+    <div class="control-value-gaia value-6673173">
+        <ul>
+        <li class="file-image-container-gaia">
+            <a
+            href="https://cybozush.cybozu.cn/k/api/record/download.do/-/%E4%B8%87%E4%B9%BE.mp4?app=3156&amp;field=6673173&amp;detectType=true&amp;record=57&amp;row=3189115&amp;id=228337&amp;hash=dea521d143217aa329ab06e7240e79196dbe8f39&amp;revision=5&amp;.mp4"
+            title=""
+            style=""
+            >视频文件.mp4</a
+            ><span style="font-size: 12px"> (100 MB)</span>
+        </li>
+        </ul>
+    </div>
+</pre>
+<p>
+    我们一点点来分析，外面的 div，class 有两个，control-value-gaia 和 value-6673173，看下来都没什么用，因为 control-value-gaia 整个页面上到处都是，重复太多，value-6673173 后面的数字好像又是随机生成的，不是什么可以用的特征。
+</p>
+<p>
+    然后看到 li 这一层，它的 class 是 file-image-container-gaia，经过几方比对，发现这个 class 是专门用作附件的，至少我们现在还没发现有重复使用的地方。这个特征是可以被利用的。然后它有一个子元素 a，这也是一个结构性的特征，也可以用进去。
+</p>
+<p>
+    根据上面说的特征，和我们学习了 css 选择器语法之后，我们可以写出这样的选择器：
+</p>
+<pre>
+    document.querySelectorAll("li.file-image-container-gaia > a");
+</pre>
