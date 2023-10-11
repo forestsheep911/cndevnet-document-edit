@@ -315,5 +315,76 @@
     playButton.style.marginLeft = '8px'
 </pre>
 <p>
-
+    按钮创建好了，接着就是要把按钮放到页面中去。在早些年，很流行用 jQuery 来操作 DOM，所以有些人会想到，先引用 jQuery 库，然后用库中的方法来添加元素。这种方法是可行的，但是现在已经不推荐这么做了，一是因为 jQuery 是一个多功能库，而我们只需要用到其中的一小部分，引入整个库，成本上划不来。二是当初流行用 jQuery 是因为它帮我们解决的多种浏览器的兼容问题。而现在的流行的现代浏览器基本上已经没有兼容性的诟病问题了。三是原生的 JS 操作 DOM 的方法也很简单好用，对于一般的操作足够了。
+</p>
+<p>
+    如果你还是觉得原生的 JS 操作 DOM 不方便，我推荐你两个开源项目。
+</p>
+<p>
+    <ul>
+        <li>https://youmightnotneedjquery.com/</li>
+        <li>https://github.com/camsong/You-Dont-Need-jQuery</li>
+    </ul>
+</p>
+<p>
+    他们都会告诉你 jQuery 和原生 JS 的对照写法。这样就一目了然了。
+</p>
+<p>
+    假设 anchorElement 是我们拿到超链接 tag 的元素变量名。我们把按钮放在它的右边，大致写法是这样：
+</p>
+<pre>
+    if (anchorElement.parentElement) {
+        anchorElement.parentElement.insertBefore(playButton, anchorElement.nextSibling)
+    }
+</pre>
+<p>
+    虽然一般情况下 anchorElement 的父元素不会是空，但是这里是标准写法，即使是为了养成好习惯，我们也推荐加一个判断。
+</p>
+<p>
+    我们要的是加在后面，但是原生 JS 没有 insertAfter 直接可以用，所以用了一个 nextSibling 来曲线救国。
+</p>
+<p>
+    播放按钮添加完了，然后我们来制作播放块。这个块的生成是在我们点击了播放按钮之后，所以这些代码应该在按钮的点击事件的回调函数中写。写法基本上安装 plyr 的文档来就可以了。
+</p>
+<pre>
+    playButton.addEventListener('click', function () {
+        const playVideoElement = document.createElement('div')
+        playVideoElement.innerHTML = `<video id="player${i}" playsinline controls><source src="${anchorEle.href}" /></video>`
+        anchorEle.parentElement.insertBefore(playVideoElement, anchorEle.nextSibling)
+        new Plyr(`#player${i}`)
+    }
+</pre>
+<p>
+    做到这里，我们可以先来确认一下工作成果，如果一切都成功的话，应该已经可以播放视频了。如果出现了什么问题的话，可以先用 console.log() 来打印一下各个步骤的中间的结果，看看是不是有什么地方出错了。
+</p>
+<p>
+    基本功能完成后，还需要做一些完善工作。譬如现在的播放块生成出来后，没办法关闭。好，那我们就来做一个关闭按钮。关闭按钮的制作方式和播放按钮一样，只是显示的文字为【close】。所以这里就不再赘述了。关闭按钮的功能是：1，移除播放块；2，移除自己。
+</p>
+<pre>
+    const closeButton = document.createElement('button')
+    closeButton.textContent = 'close'
+    closeButton.style.marginLeft = '8px'
+    closeButton.addEventListener('click', function () {
+        playVideoElement.remove()
+        closeButton.remove()
+    })
+    playVideoElement.parentElement.insertBefore(closeButton, playVideoElement.nextSibling)
+</pre>
+<p>
+    还有一件容易忘记的事情，我们发现播放按钮点击之后，如果还存在的话，就可以一直点击一直创建播放块了，这显然不是我们想要的效果，我们希望它只能点击一次。但是如果关闭按钮按下之后，播放按钮就要还原，这样就可以再次播放了。
+</p>
+<p>
+    为达到以上目的，我们在播放按钮的点击事件中追加：
+</p>
+<pre>
+    playButton.style.display = 'none'
+</pre>
+<p>
+    在关闭按钮的点击事件中追加：
+</p>
+<pre>
+    playButton.style.display = 'initial'
+</pre>
+<p>
+    复原的时候，用 'initial' 或 'inline-block' 都可以，'inline-block' 是 button 的默认 diplay 值。这里用 'initial' 是回到初始化状态。如果你一开始就用的是 'block' 的话，复原时就不要用 'initial'，应该明确指明'block'。
 </p>
