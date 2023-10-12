@@ -27,10 +27,9 @@
             <a href="#step5">开发</a>
         </p>
     </li>
-    
     <li>
         <p>
-            <a href="#step4">结束语</a>
+            <a href="#step6">结束语</a>
         </p>
     </li>
 </ul>
@@ -41,9 +40,8 @@
     在日常使用 kintone 的过程中，经常被问到一个问题，就是附件中如果上传的是视频文件，如何在网页上播放？虽然可以下载后再在本地播放，但是有时候只是想看一下视频里其中的一段，下载后再播放就非常的浪费时间。
 </p>
 <p>
-    在这篇文章中，我们将一步一步手把手教你如何实现在 kintone 中播放视频。另外，本篇会比较偏向刚刚入门 kintone 自定义开发的同学，借助这个播放视频的实例，我们会从需求分析，前期准备，代码语句的选择，查阅资料，JS方法等使用，以及日常编程中的一些小技巧予以一一讲解，希望能对初学者向熟练工过渡起到一个启发和帮助作用。我们知道，需求来了能解决自然是好，但是更重要的是学会整个一套工作的方法，所谓知其然还要知其所以然。中级及以上程度的读者，有些部分可能过于初级，可以略过详细讲解部分，自行选择阅读。
+    在这篇文章中，我们将一步一步手把手教你如何实现在 kintone 中播放视频。另外，本篇会比较偏向刚刚入门 kintone 自定义开发的同学，借助这个播放视频的实例，我们会从需求分析，前期准备，代码语句的选择，查阅资料，JS方法等使用，以及日常编程中的一些小技巧予以一一讲解，希望能对初学者向熟练工过渡，起到一个启发和帮助作用。我们知道，需求来了能解决自然是好，但是更重要的是学会整个一套工作的方法，所谓知其然还要知其所以然。中级及以上程度的读者，有些部分可能过于初级，可以略过详细讲解部分，自行选择阅读。
 </p>
-
 <h2>
     需求分析
 </h2>
@@ -53,42 +51,33 @@
 <p>
     作用范围：在 kinotne 中有多个地方可以上传附件，例如 app 内，space 内等等。不过一般 kintone 自定义一般只限定于 app 内，而且文章只是一个实例讲解，所以我们就不如把范围界定在 app 的详情画面内。
 </p>
-
 <h2>
     设计
 </h2>
 <p>
-    需求知道了，有些同学马上就会进入编程阶段，但是这里还有一个非常重要的环节：设计。设计的目的是为了让我们在编程的时候更加清晰，更加有目的性，更加有针对性。以免编程的时候瞎胡乱撞，最后发现自己的代码写的乱七八糟，不知道自己在干什么。设计的过程中，我们需要考虑的问题很多，例如：
-    <br>
-    以何种方式实现需求？用户能不能满意？
-    <br>
-    有没有备用方案？以及他们的优劣对比？
-    <br>
-    方案的实现难度如何？在现有工数允许的时间内能不能完成？
+    需求知道了，有些同学马上就会进入编程阶段，但是这里还有一个非常重要的环节：设计。设计的目的是为了让我们在编程的时候更加清晰，更加有目的性，更加有针对性。以免编程的时候瞎胡乱撞，最后发现自己的代码写的乱七八糟，不知道自己在干什么。设计的过程中，我们需要考虑的问题很多，例如： &nbsp; &nbsp;<br/>
+ &nbsp; &nbsp;以何种方式实现需求？用户能不能满意？ &nbsp; &nbsp;<br/>
+ &nbsp; &nbsp;有没有备用方案？以及他们的优劣对比？ &nbsp; &nbsp;<br/>
+ &nbsp; &nbsp;方案的实现难度如何？在现有工数允许的时间内能不能完成？
 </p>
-
 <p>
     如何播放视频？我们刚拿到这个需求肯定是什么都不知道，所以我们先来看一下附件在 app 详情画面的网页结构是怎样的吧。
 </p>
 <p>
     我们已经准备好了一个具有附件字段的 app，打开它的详情画面，上传好一个视频文件。然后按下 F12 打开开发者工具，切换到 Elements 标签页，按下元素查看按钮，快捷键是 ctrl + shift + c，再把鼠标放在网页附件的元素上，点击一下，开发者工具的元素标签内就会显示相应的html代码。代码大致如下：
 </p>
-
-<pre>
-    <div class="control-value-gaia value-6673173">
-        <ul>
-        <li class="file-image-container-gaia">
-            <a
-            href="https://cybozush.cybozu.cn/k/api/record/download.do/-/%E4%B8%87%E4%B9%BE.mp4?app=3156&amp;field=6673173&amp;detectType=true&amp;record=57&amp;row=3189115&amp;id=228337&amp;hash=dea521d143217aa329ab06e7240e79196dbe8f39&amp;revision=5&amp;.mp4"
-            title=""
-            style=""
-            >视频文件.mp4</a
-            ><span style="font-size: 12px"> (100 MB)</span>
-        </li>
-        </ul>
-    </div>
-</pre>
-
+<pre class="brush:html;toolbar:false">&lt;div class=&quot;control-value-gaia value-6673173&quot;&gt;
+    &lt;ul&gt;
+    &lt;li class=&quot;file-image-container-gaia&quot;&gt;
+        &lt;a
+        href=&quot;https://cybozush.cybozu.cn/k/api/record/download.do/-/%E4%B8%87%E4%B9%BE.mp4?app=3156&amp;amp;field=6673173&amp;amp;detectType=true&amp;amp;record=57&amp;amp;row=3189115&amp;amp;id=228337&amp;amp;hash=dea521d143217aa329ab06e7240e79196dbe8f39&amp;amp;revision=5&amp;amp;.mp4&quot;
+        title=&quot;&quot;
+        style=&quot;&quot;
+        &gt;视频文件.mp4&lt;/a
+        &gt;&lt;span style=&quot;font-size: 12px&quot;&gt; (100 MB)&lt;/span&gt;
+    &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</pre>
 <p>
     分析这段 html 代码，我们发现，最外面一层是一个 div，里面一层 ul li 是一个列表，估计是当有多个附件的时候，会显示多个 li。li 里面是一个 a 标签，这个 a 标签的 href 属性里放的是视频文件的链接，如果将来我们找到一种可以播放视频的方法时，肯定会要求我们提供这个链接的。现在的阶段我们就只要先知道这个链接在哪里就可以了。
 </p>
@@ -99,7 +88,7 @@
     还有一个问题是视频的加载时机，现在我们的附件上只是有一个链接而已，如果加入了一个视频播放块，是需要选择一个加载时机的。也有两种考虑：一种是页面加载完成后自动加载，这样的好处是用户不需要做任何操作就可以看到视频，但是如果视频附件很多，画面上会出现很多视频播放块，比较消耗资源。另一种是在每个视频附件后面加一个按钮，点击按钮后才加载视频，这样的好处是用户可以选择自己想看的视频，应该是一个更好的选择。
 </p>
 <p>
-    我们选择点击按钮播放，应该还需要一个关闭视频块的按钮，这样用户就可以选择关闭视频块，不至于把画面撑满弄得一团糟。
+    我们选择点击按钮播放，应该还需要一个关闭视频块的按钮，这样用户就可以选择关闭视频块，视频有多个的时候，不至于把画面撑满弄得一团糟。
 </p>
 <h2>
     前期准备
@@ -116,7 +105,6 @@
 <p>
     确认找到的库切实可用之后，项目的成功就有了很大的把握。这里我们就略去寻找库的方法和过程，直接告诉你这次我们选的库名叫 <a href="https://github.com/sampotts/plyr">Plyr</a> 。 它一款简单的轻量级的支持多种播放格式且在现代浏览器上得到稳定支持的开源软件。确认找到的库切实可用之后，项目的成功就有了很大的把握。剩下的就是一些 JS 对网页的基本操作，例如获取元素，添加元素，删除元素，修改元素等等。这些都是非常基础的操作，初学者可以在 MDN 上查阅相关资料，或者是在网上搜索相关的教程，之后我们会在代码解读部分我们遇到什么再具体讲什么。
 </p>
-
 <h2>
     开发
 </h2>
@@ -126,12 +114,8 @@
 <p>
     <q>You can use Plyr as an ES6 module as follows:</q>
 </p>
-
-<pre>
-    import Plyr from 'plyr';
-    const player = new Plyr('#player');
-</pre>
-
+<pre class="brush:js;toolbar:false">import Plyr from &#39;plyr&#39;;
+const player = new Plyr(&#39;#player&#39;);</pre>
 <p>
     这里说，你可以用 ES6 的方式使用 plyr，代码中的 import 也正好是 ES6 的语法，但是 kintone 的开发不直接支持这种用法。简单说如果你直接在你的代码中写 import ... ，然后上传到自定义 JS 代码的地方，是绝对会报错的。真的要使用这种方式，需要用到 webpack 或其他编译工具作为转换，如果你是一个资深前端开发者，我相信这些也难不倒你，但是本篇文章的目的是面对初学者，所以我们就不用这种方式了。
 </p>
@@ -140,19 +124,18 @@
 </p>
 <p>
     <q>
-        You can use our CDN (provided by Cloudflare) for the JavaScript. There's 2 versions; one with and one without polyfills. My recommendation would be to manage polyfills separately as part of your application but to make life easier you can use the polyfilled build.
-    </q>
+ &nbsp; &nbsp; &nbsp; &nbsp;You can use our CDN (provided by Cloudflare) for the JavaScript. There&#39;s 2 versions; one with and one without polyfills. My recommendation would be to manage polyfills separately as part of your application but to make life easier you can use the polyfilled build. &nbsp; &nbsp;</q>
 </p>
 <p>
-    这段话的意思大致是：你还可以使用 CDN 方式。如果你不理解 CDN，也没有关系，这里你只要理解为：作者把库的可引用版本，放在了公网上。我们使用时，只需要引用这个地址，不需要把库整个下载下来放到代码里。至于上文中提到的polyfills，它是对应旧型号浏览器的兼容性问题，我们在不考虑这些问题的时候，只要引用五 polyfills 的版本就可以了。
+    这段话的意思大致是：你还可以使用 CDN 方式。如果你不理解 CDN，也没有关系，这里你只要理解为：作者把库的可引用版本，放在了公网上。我们使用时，只需要引用这个地址，不需要把库整个下载下来放到代码里。至于上文中提到的polyfills，它是对应旧型号浏览器的兼容性问题，我们在不考虑这些问题的时候，只要引用无 polyfills 的版本就可以了。
 </p>
-<pre>
-    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-</pre>
+<pre class="brush:html;toolbar:false">&lt;script src=&quot;https://cdn.plyr.io/3.7.8/plyr.js&quot;&gt;&lt;/script&gt;</pre>
 <p>
     上面这段代码是用在 html 中的，用 script 标签来引用别的文件，kintone 的自定义开发，我们只需要用到 src 属性中的内容即可。在自定义设置页面，点击通过 url 添加，把这段 url 添加进去，就相当于把库引入到开发中来了。
 </p>
-<img src="" alt="">
+<p>
+    <img src alt=""/>
+</p>
 <p>
     紧接下来的文档中，还提到了 css 的使用，同样我们也可以使用 CND 的方式，和 JS 类似，也是添加好 url 即可。这里也许有同学要问，我不用 css 行不行，或者我自己写行不行？我这里还是以初学者的观点出发回答：不太行。不用 css 整个播放块排版会乱掉，自己写 css 要控制的东西太多，初学者完全没必要去搞这些事情。真的要搞也要等基础功能做完整了，再去锦上添花比较好。总之，这里还是老老实实的用他给的 css 就行。
 </p>
@@ -162,12 +145,10 @@
 <p>
     现在开始正式写代码。首先，我们的代码触发的时机是【纪录详情页面显示之后】，所以我们可以到相应的事件的文档查阅规范写法。如果你不知道怎么查事件，可以先去<a href="https://cybozudev.kf5.com/hc/kb/article/1303568/">事件列表</a>寻找你所需要的事件，然后再看<a href="https://cybozudev.kf5.com/hc/kb/article/205422/">事件写法的说明</a>。根据【纪录详情页面显示之后】的代码范例，我们知道我们所有的代码都应该在这个事件的回调函数中写出。
 </p>
-<pre>
-    kintone.events.on('app.record.detail.show', function(event) {
-        window.alert("记录详情页面已打开")
-        return event
-    });
-</pre>
+<pre class="brush:js;toolbar:false">kintone.events.on(&#39;app.record.detail.show&#39;, function(event) {
+    window.alert(&quot;记录详情页面已打开&quot;)
+    return event
+})</pre>
 <p>
     接下来，我们要先找到页面中是附件的元素，否则无从判断它是不是视频。这里需要用到 JS 中一个很基础的操作，元素的选取。元素的选取可以帮助我们拿到整个页面中，符合我们需求的元素的句柄，因为在程序的世界中，开始对某个东西操作之前，一定要拿到它的句柄，否则你不知道你要操作的是哪个东西。（如果你对句柄这个词感到陌生，那你或许听说过下面这些词：【参照】【引用】【地址】，他们的基本意思都是一样的。）
 </p>
@@ -177,20 +158,18 @@
 <p>
     根据我们之前的观察，下面这段 html 代码就是一个典型的附件。
 </p>
-<pre>
-    <div class="control-value-gaia value-6673173">
-        <ul>
-        <li class="file-image-container-gaia">
-            <a
-            href="https://cybozush.cybozu.cn/k/api/record/download.do/-/%E4%B8%87%E4%B9%BE.mp4?app=3156&amp;field=6673173&amp;detectType=true&amp;record=57&amp;row=3189115&amp;id=228337&amp;hash=dea521d143217aa329ab06e7240e79196dbe8f39&amp;revision=5&amp;.mp4"
-            title=""
-            style=""
-            >视频文件.mp4</a
-            ><span style="font-size: 12px"> (100 MB)</span>
-        </li>
-        </ul>
-    </div>
-</pre>
+<pre class="brush:html;toolbar:false">&lt;div class=&quot;control-value-gaia value-6673173&quot;&gt;
+    &lt;ul&gt;
+    &lt;li class=&quot;file-image-container-gaia&quot;&gt;
+        &lt;a
+        href=&quot;https://cybozush.cybozu.cn/k/api/record/download.do/-/%E4%B8%87%E4%B9%BE.mp4?app=3156&amp;amp;field=6673173&amp;amp;detectType=true&amp;amp;record=57&amp;amp;row=3189115&amp;amp;id=228337&amp;amp;hash=dea521d143217aa329ab06e7240e79196dbe8f39&amp;amp;revision=5&amp;amp;.mp4&quot;
+        title=&quot;&quot;
+        style=&quot;&quot;
+        &gt;视频文件.mp4&lt;/a
+        &gt;&lt;span style=&quot;font-size: 12px&quot;&gt; (100 MB)&lt;/span&gt;
+    &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</pre>
 <p>
     我们一点点来分析，外面的 div，class 有两个，control-value-gaia 和 value-6673173，看下来都没什么用，因为 control-value-gaia 整个页面上到处都是，重复太多，value-6673173 后面的数字好像又是随机生成的，不是什么可以用的特征。
 </p>
@@ -200,11 +179,9 @@
 <p>
     根据上面说的特征，和我们学习了 css 选择器语法之后，我们可以写出这样的选择器：
 </p>
-<pre>
-    document.querySelectorAll("li.file-image-container-gaia>a")
-</pre>
+<pre class="brush:js;toolbar:false">document.querySelectorAll(&quot;li.file-image-container-gaia&gt;a&quot;)</pre>
 <p>
-    稍微解释一下这个选择器的含义，【li.file-image-container-gaia】代表 tag 是 li的，同时又含有 file-image-container-gaia 这个 class 的元素，其中，点【.】开头代表后面将跟的是 class 名。而 li 和 点【.】紧紧挨在一起说明是同时具有，如果是空一格，那含义就将完全不一样。大于符号【>】代表的意思是左面的元素是右面的元素的父亲，换句话说就是紧挨着的上下层，这里需要注意和空格的区别，空格代表子孙，也就是说中间可以隔着几层都算是符合条件。这里我们用【>】，从结构上限制得更加严格一点，一定程度上可以避免误选中相似结构。
+    稍微解释一下这个选择器的含义，【li.file-image-container-gaia】代表 tag 是 li的，同时又含有 file-image-container-gaia 这个 class 的元素，其中，点【.】开头代表后面将跟的是 class 名。而 li 和 点【.】紧紧挨在一起说明是同时具有，如果是空一格，那含义就将完全不一样。大于符号【&gt;】代表的意思是左面的元素是右面的元素的父亲，换句话说就是紧挨着的上下层，这里需要注意和空格的区别，空格代表子孙，也就是说中间可以隔着几层都算是符合条件。这里我们用【&gt;】，从结构上限制得更加严格一点，一定程度上可以避免误选中相似结构。
 </p>
 <p>
     这样，理论上只要页面上出现类似的结构，也就是我们认为的附件，就会被选中。我们得到的是一个数组。这里需要注意一下，如果什么都没有选中，那我们会得到一个空数组，而不是 undefined 或 null。
@@ -230,12 +207,10 @@
 <p>
     好，我们言归正传。拿到元素，准确的说是 HTMLAnchorElement 这个类型的元素，也就相当于我们可以拿到它的 url。用 .href 就可以拿到。大致的意思是这样：
 </p>
-<pre>
-    const results = document.querySelectorAll("li.file-image-container-gaia>a")
-    if (results[0]) {
-        const url = results[0].href
-    }
-</pre>
+<pre class="brush:js;toolbar:false">const results = document.querySelectorAll(&quot;li.file-image-container-gaia&gt;a&quot;)
+if (results[0]) {
+    const url = results[0].href
+}</pre>
 <p>
     接下来我们将碰到的课题是，怎么根据 url 来判断它是不是视频？我有一个简单的办法，判断 url 最后的文件扩展名。如果是预计中的几种视频类型中的一种，那就认为是视频，反之则无视之。或许你有更好的办法，欢迎写在评论区告诉大家。
 </p>
@@ -251,9 +226,9 @@
 <p>
     我给出的正则表达式是：（欢迎读者给出自己的表达式）
 </p>
-<pre>
+<p>
     const regex = /\.mov$|\.mp4$|\.mkv$|\.webm$/i
-</pre>
+</p>
 <p>
     简略解读一下，两个 / 中间保住的部分就是正则表达式的主体，最后跟的 i 是代表忽略大小写。因为文件名区分大小写敏感，但是扩展名大小写都不影响视频文件本身，所以匹配的时候要忽略。
 </p>
@@ -266,53 +241,61 @@
 <p>
     有了正则表达式，我们就可以用它来匹配我们拿到的 url 了。在 JS 中，匹配的方法有好几种，既可以用 正则表达式自带的两个方法 exec() 和 test()，也可以用字符串的原型方法 match()。在这里，我们不需要得到匹配后的结果，而只要知道有没有匹配上就行了，这种情况下，用 test() 时比较合适的。大致写法如下：
 </p>
-<pre>
-    if (regex.test(url)) {
-        // your code
-    }
-</pre>
+<pre class="brush:js;toolbar:false">if (regex.test(url)) {
+    // your code
+}</pre>
 <p>
     解决好了字符串匹配，我们就能找到是视频的元素了。接下来我们来考虑追加一个播放按钮。也是分两步走，第一步，制作一个按钮，第二步，把按钮追加到预定位置，也就是附件的右面。
 </p>
 <p>
     我们先来创建一个按钮。
 </p>
-<pre>
-    const playButton = document.createElement('button')
-</pre>
+<pre class="brush:js;toolbar:false">const playButton = document.createElement(&#39;button&#39;)</pre>
 <p>
-    我们不能凭空创建，需要使用 document 也就是我们页面文档实例当作发起创建的对象。这里我们使用了 createElement() 这个方法，它的参数是一个字符串，代表要创建的元素的 tag，这里我们创建的是 button，所以参数就给 'button'。这个方法会返回一个 HTMLButtonElement 类型的元素，也就是我们创建的按钮。
+    我们不能凭空创建，需要使用 document 也就是我们页面文档实例当作发起创建的对象。这里我们使用了 createElement() 这个方法，它的参数是一个字符串，代表要创建的元素的 tag，这里我们创建的是 button，所以参数就给 &#39;button&#39;。这个方法会返回一个 HTMLButtonElement 类型的元素，也就是我们创建的按钮。
 </p>
 <p>
     然后我们要给按钮加个显示用的名字，还有一些样式，为了不让两个元素紧贴，加一点 margin。
 </p>
-<pre>
-    playButton.textContent = 'Play'
-    playButton.style.marginLeft = '8px'
-</pre>
+<ul class=" list-paddingleft-2" style="list-style-type: disc;">
+    <li>
+        <p>
+            playButton.textContent = &#39;Play&#39;
+        </p>
+    </li>
+    <li>
+        <p>
+            playButton.style.marginLeft = &#39;8px&#39;
+        </p>
+    </li>
+</ul>
 <p>
-    按钮创建好了，接着就是要把按钮放到页面中去。在早些年，很流行用 jQuery 来操作 DOM，所以有些人会想到，先引用 jQuery 库，然后用库中的方法来添加元素。这种方法是可行的，但是现在已经不推荐这么做了，一是因为 jQuery 是一个多功能库，而我们只需要用到其中的一小部分，引入整个库，成本上划不来。二是当初流行用 jQuery 是因为它帮我们解决的多种浏览器的兼容问题。而现在的流行的现代浏览器基本上已经没有兼容性的诟病问题了。三是原生的 JS 操作 DOM 的方法也很简单好用，对于一般的操作足够了。
+    按钮创建好了，接着就是要把按钮放到页面中去。在早些年，很流行用 jQuery 来操作 DOM，所以有些人会想到，先引用 jQuery 库，然后用库中的方法来添加元素。这种方法是可行的，但是现在已经不推荐这么做了，一是因为 jQuery 是一个多功能库，如果只是为了操作 DOM，引入整个库，会造成页面负担过重等问题。二是当初流行用 jQuery 是因为它帮我们解决的多种浏览器的兼容问题。而现在的流行的现代浏览器基本上已经没有兼容性的诟病问题了。三是原生的 JS 操作 DOM 的方法也很简单好用，对于一般的操作足够了。
 </p>
 <p>
     如果你还是觉得原生的 JS 操作 DOM 不方便，我推荐你两个开源项目。
 </p>
-<p>
-    <ul>
-        <li>https://youmightnotneedjquery.com/</li>
-        <li>https://github.com/camsong/You-Dont-Need-jQuery</li>
-    </ul>
-</p>
+<ul class=" list-paddingleft-2" style="list-style-type: disc;">
+    <li>
+        <p>
+            https://youmightnotneedjquery.com/
+        </p>
+    </li>
+    <li>
+        <p>
+            https://github.com/camsong/You-Dont-Need-jQuery
+        </p>
+    </li>
+</ul>
 <p>
     他们都会告诉你 jQuery 和原生 JS 的对照写法。这样就一目了然了。
 </p>
 <p>
     假设 anchorElement 是我们拿到超链接 tag 的元素变量名。我们把按钮放在它的右边，大致写法是这样：
 </p>
-<pre>
-    if (anchorElement.parentElement) {
-        anchorElement.parentElement.insertBefore(playButton, anchorElement.nextSibling)
-    }
-</pre>
+<pre class="brush:js;toolbar:false">if (anchorElement.parentElement) {
+    anchorElement.parentElement.insertBefore(playButton, anchorElement.nextSibling)
+}</pre>
 <p>
     虽然一般情况下 anchorElement 的父元素不会是空，但是这里是标准写法，即使是为了养成好习惯，我们也推荐加一个判断。
 </p>
@@ -320,49 +303,41 @@
     我们要的是加在后面，但是原生 JS 没有 insertAfter 直接可以用，所以用了一个 nextSibling 来曲线救国。
 </p>
 <p>
-    播放按钮添加完了，然后我们来制作播放块。这个块的生成是在我们点击了播放按钮之后，所以这些代码应该在按钮的点击事件的回调函数中写。写法基本上安装 plyr 的文档来就可以了。
+    播放按钮添加完了，然后我们来制作播放块。这个块的生成是在我们点击了播放按钮之后，所以这些代码应该在按钮的点击事件的回调函数中写。写法基本上安装 plyr 的文档来就可以了。位置就近放在链接的后面。
 </p>
-<pre>
-    playButton.addEventListener('click', function () {
-        const playVideoElement = document.createElement('div')
-        playVideoElement.innerHTML = `<video id="player${i}" playsinline controls><source src="${anchorEle.href}" /></video>`
-        anchorEle.parentElement.insertBefore(playVideoElement, anchorEle.nextSibling)
-        new Plyr(`#player${i}`)
-    }
-</pre>
+<pre class="brush:js;toolbar:false">playButton.addEventListener(&#39;click&#39;, function () {
+    const playVideoElement = document.createElement(&#39;div&#39;)
+    playVideoElement.innerHTML = ``
+    anchorElement.parentElement.insertBefore(playVideoElement, anchorElement.nextSibling)
+    new Plyr(`#player${i}`)
+}</pre>
 <p>
     做到这里，我们可以先来确认一下工作成果，如果一切都成功的话，应该已经可以播放视频了。如果出现了什么问题的话，可以先用 console.log() 来打印一下各个步骤的中间的结果，看看是不是有什么地方出错了。
 </p>
 <p>
     基本功能完成后，还需要做一些完善工作。譬如现在的播放块生成出来后，没办法关闭。好，那我们就来做一个关闭按钮。关闭按钮的制作方式和播放按钮一样，只是显示的文字为【close】。所以这里就不再赘述了。关闭按钮的功能是：1，移除播放块；2，移除自己。
 </p>
-<pre>
-    const closeButton = document.createElement('button')
-    closeButton.textContent = 'close'
-    closeButton.style.marginLeft = '8px'
-    closeButton.addEventListener('click', function () {
-        playVideoElement.remove()
-        closeButton.remove()
-    })
-    playVideoElement.parentElement.insertBefore(closeButton, playVideoElement.nextSibling)
-</pre>
+<pre class="brush:js;toolbar:false">const closeButton = document.createElement(&#39;button&#39;)
+closeButton.textContent = &#39;close&#39;
+closeButton.style.marginLeft = &#39;8px&#39;
+closeButton.addEventListener(&#39;click&#39;, function () {
+    playVideoElement.remove()
+    closeButton.remove()
+})
+playVideoElement.parentElement.insertBefore(closeButton, playVideoElement.nextSibling)</pre>
 <p>
     还有一件容易忘记的事情，我们发现播放按钮点击之后，如果还存在的话，就可以一直点击一直创建播放块了，这显然不是我们想要的效果，我们希望它只能点击一次。但是如果关闭按钮按下之后，播放按钮就要还原，这样就可以再次播放了。
 </p>
 <p>
     为达到以上目的，我们在播放按钮的点击事件中追加：
 </p>
-<pre>
-    playButton.style.display = 'none'
-</pre>
+<pre class="brush:js;toolbar:false">playButton.style.display = &#39;none&#39;</pre>
 <p>
     在关闭按钮的点击事件中追加：
 </p>
-<pre>
-    playButton.style.display = 'initial'
-</pre>
+<pre class="brush:js;toolbar:false">playButton.style.display = &#39;initial&#39;</pre>
 <p>
-    复原的时候，用 'initial' 或 'inline-block' 都可以，'inline-block' 是 button 的默认 diplay 值。这里用 'initial' 是回到初始化状态。如果你一开始就用的是 'block' 的话，复原时就不要用 'initial'，应该明确指明'block'。
+    复原的时候，用 &#39;initial&#39; 或 &#39;inline-block&#39; 都可以，&#39;inline-block&#39; 是 button 的默认 diplay 值。这里用 &#39;initial&#39; 是回到初始化状态。如果你一开始就用的是 &#39;block&#39; 的话，复原时就不要用 &#39;initial&#39;，应该明确指明&#39;block&#39;。
 </p>
 <p>
     到这里，基本功能的开发就告一段落了。这里我们就不完整的给出全部代码了，希望读者可以根据每个功能的小片段，把整个项目的代码构建出来，以达到实践练手的目的。在实践的过程中，特别要注意分步骤进行，确认每一步正确之后再进行下一步。
@@ -374,5 +349,5 @@
     结束语
 </h2>
 <p>
-    本篇文章，结合视频播放附件这个实际需求，从思考如何开发，如何进行这个项目的设计。然后进入实际开发后，讲解了几个功能所需要的 JS 基本编程技巧和思考方式。希望读者可以从中借鉴，学以致用。有任何问题，欢迎在评论区留言。
+    本篇文章，结合视频播放附件这个实际需求，从思考如何分析需求，如何设计，提出方案，考量方案的可行性等各方面因素。然后进入实际开发后，讲解了几个常用功能的编程技巧，比如操作 DOM 和正则以及在日常编程中的注意事项等。希望读者可以从中借鉴，学以致用。有任何问题，欢迎在评论区留言。
 </p>
